@@ -1,0 +1,11 @@
+# PermissionsError
+
+
+## Fields
+
+| Field                                                                               | Type                                                                                | Required                                                                            | Description                                                                         |
+| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `category`                                                                          | *T.nilable(::String)*                                                               | :heavy_minus_sign:                                                                  | A classification of the error, indicating the general area or type of problem.      |
+| `code`                                                                              | *T.nilable(::String)*                                                               | :heavy_minus_sign:                                                                  | A specific error code that uniquely identifies the error condition.                 |
+| `message`                                                                           | *T.nilable(::String)*                                                               | :heavy_minus_sign:                                                                  | A human-readable message providing a brief explanation of the error and its cause.  |
+| `details`                                                                           | [T.nilable(Models::Shared::Details)](../../models/shared/details.md)                | :heavy_minus_sign:                                                                  | Additional contextual information about the error, which may include relevant data. |

@@ -39,13 +39,13 @@ module CldProvisioning
 
     sig {
       params(
-        request: Models::Operations::GetProductEnvironmentsRequest,
+        request: T.nilable(Models::Operations::GetProductEnvironmentsRequest),
         timeout_ms: T.nilable(Integer),
         http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])
       )
-        .returns(Models::Operations::GetProductEnvironmentsResponse)
+        .returns(Models::Shared::ProductEnvironmentsResponse)
     }
-    def list(request:, timeout_ms: nil, http_headers: nil)
+    def list(request: nil, timeout_ms: nil, http_headers: nil)
       # list - Get product environments
       # Return an array of all product environments, or if conditions are specified,
       # return the relevant product environments.
@@ -136,7 +136,7 @@ module CldProvisioning
       content_type = http_response.headers.fetch("Content-Type", "application/octet-stream")
       if Utils.match_status_code(http_response.status, ["200"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
@@ -144,14 +144,8 @@ module CldProvisioning
           )
           response_data = http_response.env.response_body
           obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::ProductEnvironmentsResponse)
-          response = Models::Operations::GetProductEnvironmentsResponse.new(
-            status_code: http_response.status,
-            content_type: content_type,
-            raw_response: http_response,
-            product_environments_response: T.unsafe(obj)
-          )
 
-          return response
+          return obj
         else
           raise(
             ::CldProvisioning::Models::Errors::APIError.new(
@@ -164,7 +158,7 @@ module CldProvisioning
         end
       elsif Utils.match_status_code(http_response.status, ["400", "401", "403", "404", "409", "420", "429"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
@@ -172,7 +166,6 @@ module CldProvisioning
           )
           response_data = http_response.env.response_body
           obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::ErrorResponse)
-          obj.raw_response = http_response
           raise obj
         else
           raise(
@@ -222,7 +215,7 @@ module CldProvisioning
         timeout_ms: T.nilable(Integer),
         http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])
       )
-        .returns(Models::Operations::CreateProductEnvironmentResponse)
+        .returns(Models::Shared::ProductEnvironment)
     }
     def create(product_environment_request:, account_id: nil, timeout_ms: nil, http_headers: nil)
       # create - Create product environment
@@ -331,7 +324,7 @@ module CldProvisioning
       content_type = http_response.headers.fetch("Content-Type", "application/octet-stream")
       if Utils.match_status_code(http_response.status, ["200"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
@@ -339,14 +332,8 @@ module CldProvisioning
           )
           response_data = http_response.env.response_body
           obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::ProductEnvironment)
-          response = Models::Operations::CreateProductEnvironmentResponse.new(
-            status_code: http_response.status,
-            content_type: content_type,
-            raw_response: http_response,
-            product_environment: T.unsafe(obj)
-          )
 
-          return response
+          return obj
         else
           raise(
             ::CldProvisioning::Models::Errors::APIError.new(
@@ -359,7 +346,7 @@ module CldProvisioning
         end
       elsif Utils.match_status_code(http_response.status, ["400", "401", "403", "409", "420", "429"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
@@ -367,7 +354,6 @@ module CldProvisioning
           )
           response_data = http_response.env.response_body
           obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::ErrorResponse)
-          obj.raw_response = http_response
           raise obj
         else
           raise(
@@ -417,7 +403,7 @@ module CldProvisioning
         timeout_ms: T.nilable(Integer),
         http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])
       )
-        .returns(Models::Operations::GetProductEnvironmentResponse)
+        .returns(Models::Shared::ProductEnvironment)
     }
     def get(sub_account_id:, account_id: nil, timeout_ms: nil, http_headers: nil)
       # get - Get product environment
@@ -505,7 +491,7 @@ module CldProvisioning
       content_type = http_response.headers.fetch("Content-Type", "application/octet-stream")
       if Utils.match_status_code(http_response.status, ["200"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
@@ -513,14 +499,8 @@ module CldProvisioning
           )
           response_data = http_response.env.response_body
           obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::ProductEnvironment)
-          response = Models::Operations::GetProductEnvironmentResponse.new(
-            status_code: http_response.status,
-            content_type: content_type,
-            raw_response: http_response,
-            product_environment: T.unsafe(obj)
-          )
 
-          return response
+          return obj
         else
           raise(
             ::CldProvisioning::Models::Errors::APIError.new(
@@ -533,7 +513,7 @@ module CldProvisioning
         end
       elsif Utils.match_status_code(http_response.status, ["400", "401", "404", "420", "429"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
@@ -541,7 +521,6 @@ module CldProvisioning
           )
           response_data = http_response.env.response_body
           obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::ErrorResponse)
-          obj.raw_response = http_response
           raise obj
         else
           raise(
@@ -586,17 +565,17 @@ module CldProvisioning
 
     sig {
       params(
-        product_environment_update_request: Models::Shared::ProductEnvironmentUpdateRequest,
         sub_account_id: ::String,
+        product_environment_update_request: Models::Shared::ProductEnvironmentUpdateRequest,
         account_id: T.nilable(::String),
         timeout_ms: T.nilable(Integer),
         http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])
       )
-        .returns(Models::Operations::UpdateProductEnvironmentResponse)
+        .returns(Models::Shared::ProductEnvironment)
     }
     def update(
-      product_environment_update_request:,
       sub_account_id:,
+      product_environment_update_request:,
       account_id: nil,
       timeout_ms: nil,
       http_headers: nil
@@ -706,7 +685,7 @@ module CldProvisioning
       content_type = http_response.headers.fetch("Content-Type", "application/octet-stream")
       if Utils.match_status_code(http_response.status, ["200"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
@@ -714,14 +693,8 @@ module CldProvisioning
           )
           response_data = http_response.env.response_body
           obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::ProductEnvironment)
-          response = Models::Operations::UpdateProductEnvironmentResponse.new(
-            status_code: http_response.status,
-            content_type: content_type,
-            raw_response: http_response,
-            product_environment: T.unsafe(obj)
-          )
 
-          return response
+          return obj
         else
           raise(
             ::CldProvisioning::Models::Errors::APIError.new(
@@ -734,7 +707,7 @@ module CldProvisioning
         end
       elsif Utils.match_status_code(http_response.status, ["400", "401", "403", "404", "409", "420", "429"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
@@ -742,7 +715,6 @@ module CldProvisioning
           )
           response_data = http_response.env.response_body
           obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::ErrorResponse)
-          obj.raw_response = http_response
           raise obj
         else
           raise(
@@ -792,7 +764,7 @@ module CldProvisioning
         timeout_ms: T.nilable(Integer),
         http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])
       )
-        .returns(Models::Operations::DeleteProductEnvironmentResponse)
+        .returns(Models::Shared::SuccessResponse)
     }
     def delete(sub_account_id:, account_id: nil, timeout_ms: nil, http_headers: nil)
       # delete - Delete product environment
@@ -880,7 +852,7 @@ module CldProvisioning
       content_type = http_response.headers.fetch("Content-Type", "application/octet-stream")
       if Utils.match_status_code(http_response.status, ["200"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
@@ -888,14 +860,8 @@ module CldProvisioning
           )
           response_data = http_response.env.response_body
           obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::SuccessResponse)
-          response = Models::Operations::DeleteProductEnvironmentResponse.new(
-            status_code: http_response.status,
-            content_type: content_type,
-            raw_response: http_response,
-            success_response: T.unsafe(obj)
-          )
 
-          return response
+          return obj
         else
           raise(
             ::CldProvisioning::Models::Errors::APIError.new(
@@ -908,7 +874,7 @@ module CldProvisioning
         end
       elsif Utils.match_status_code(http_response.status, ["400", "401", "403", "404", "420", "429"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
@@ -916,7 +882,6 @@ module CldProvisioning
           )
           response_data = http_response.env.response_body
           obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::ErrorResponse)
-          obj.raw_response = http_response
           raise obj
         else
           raise(

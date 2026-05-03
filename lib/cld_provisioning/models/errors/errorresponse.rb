@@ -16,24 +16,16 @@ module CldProvisioning
           Crystalline::Nilable.new(Models::Shared::Error),
           {'format_json': {'letter_case': ::CldProvisioning::Utils.field_name("error")}}
         )
-        # Raw HTTP response; suitable for custom response parsing
-        field(
-          :raw_response,
-          Crystalline::Nilable.new(::Faraday::Response),
-          {'format_json': {'letter_case': ::CldProvisioning::Utils.field_name("-")}}
-        )
 
-        sig { params(error: T.nilable(Models::Shared::Error), raw_response: T.nilable(::Faraday::Response)).void }
-        def initialize(error: nil, raw_response: nil)
+        sig { params(error: T.nilable(Models::Shared::Error)).void }
+        def initialize(error: nil)
           @error = error
-          @raw_response = raw_response
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a?(self.class)
           return false unless @error == other.error
-          return false unless @raw_response == other.raw_response
           true
         end
       end

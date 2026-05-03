@@ -50,7 +50,7 @@ module CldProvisioning
         timeout_ms: T.nilable(Integer),
         http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])
       )
-        .returns(Models::Operations::GetRolesResponse)
+        .returns(Models::Shared::RolesResponse)
     }
     def list(request:, timeout_ms: nil, http_headers: nil)
       # list - Get roles
@@ -141,7 +141,7 @@ module CldProvisioning
       content_type = http_response.headers.fetch("Content-Type", "application/octet-stream")
       if Utils.match_status_code(http_response.status, ["200"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
@@ -149,14 +149,8 @@ module CldProvisioning
           )
           response_data = http_response.env.response_body
           obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::RolesResponse)
-          response = Models::Operations::GetRolesResponse.new(
-            status_code: http_response.status,
-            content_type: content_type,
-            raw_response: http_response,
-            roles_response: T.unsafe(obj)
-          )
 
-          return response
+          return obj
         else
           raise(
             ::CldProvisioning::Models::Errors::APIError.new(
@@ -169,7 +163,7 @@ module CldProvisioning
         end
       elsif Utils.match_status_code(http_response.status, ["401", "403"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
@@ -177,7 +171,6 @@ module CldProvisioning
           )
           response_data = http_response.env.response_body
           obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::PermissionsErrorResponse)
-          obj.raw_response = http_response
           raise obj
         else
           raise(
@@ -191,7 +184,7 @@ module CldProvisioning
         end
       elsif Utils.match_status_code(http_response.status, ["500"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
@@ -199,7 +192,6 @@ module CldProvisioning
           )
           response_data = http_response.env.response_body
           obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::PermissionsErrorResponse)
-          obj.raw_response = http_response
           raise obj
         else
           raise(
@@ -249,7 +241,7 @@ module CldProvisioning
         timeout_ms: T.nilable(Integer),
         http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])
       )
-        .returns(Models::Operations::CreateRoleResponse)
+        .returns(Models::Shared::RoleResponse)
     }
     def create(create_role:, account_id: nil, timeout_ms: nil, http_headers: nil)
       # create - Create custom role
@@ -349,7 +341,7 @@ module CldProvisioning
       content_type = http_response.headers.fetch("Content-Type", "application/octet-stream")
       if Utils.match_status_code(http_response.status, ["201"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
@@ -357,14 +349,8 @@ module CldProvisioning
           )
           response_data = http_response.env.response_body
           obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::RoleResponse)
-          response = Models::Operations::CreateRoleResponse.new(
-            status_code: http_response.status,
-            content_type: content_type,
-            raw_response: http_response,
-            role_response: T.unsafe(obj)
-          )
 
-          return response
+          return obj
         else
           raise(
             ::CldProvisioning::Models::Errors::APIError.new(
@@ -377,7 +363,7 @@ module CldProvisioning
         end
       elsif Utils.match_status_code(http_response.status, ["400", "401", "403", "409"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
@@ -385,7 +371,6 @@ module CldProvisioning
           )
           response_data = http_response.env.response_body
           obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::PermissionsErrorResponse)
-          obj.raw_response = http_response
           raise obj
         else
           raise(
@@ -399,7 +384,7 @@ module CldProvisioning
         end
       elsif Utils.match_status_code(http_response.status, ["500"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
@@ -407,7 +392,6 @@ module CldProvisioning
           )
           response_data = http_response.env.response_body
           obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::PermissionsErrorResponse)
-          obj.raw_response = http_response
           raise obj
         else
           raise(
@@ -456,7 +440,7 @@ module CldProvisioning
         timeout_ms: T.nilable(Integer),
         http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])
       )
-        .returns(Models::Operations::GetRoleResponse)
+        .returns(Models::Shared::RoleResponse)
     }
     def get(request:, timeout_ms: nil, http_headers: nil)
       # get - Get role
@@ -546,7 +530,7 @@ module CldProvisioning
       content_type = http_response.headers.fetch("Content-Type", "application/octet-stream")
       if Utils.match_status_code(http_response.status, ["200"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
@@ -554,14 +538,8 @@ module CldProvisioning
           )
           response_data = http_response.env.response_body
           obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::RoleResponse)
-          response = Models::Operations::GetRoleResponse.new(
-            status_code: http_response.status,
-            content_type: content_type,
-            raw_response: http_response,
-            role_response: T.unsafe(obj)
-          )
 
-          return response
+          return obj
         else
           raise(
             ::CldProvisioning::Models::Errors::APIError.new(
@@ -574,7 +552,7 @@ module CldProvisioning
         end
       elsif Utils.match_status_code(http_response.status, ["401", "403", "404"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
@@ -582,7 +560,6 @@ module CldProvisioning
           )
           response_data = http_response.env.response_body
           obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::PermissionsErrorResponse)
-          obj.raw_response = http_response
           raise obj
         else
           raise(
@@ -627,15 +604,15 @@ module CldProvisioning
 
     sig {
       params(
-        role: Models::Shared::Role,
         role_id: ::String,
+        role: Models::Shared::Role,
         account_id: T.nilable(::String),
         timeout_ms: T.nilable(Integer),
         http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])
       )
-        .returns(Models::Operations::UpdateRoleResponse)
+        .returns(Models::Shared::RoleResponse)
     }
-    def update(role:, role_id:, account_id: nil, timeout_ms: nil, http_headers: nil)
+    def update(role_id:, role:, account_id: nil, timeout_ms: nil, http_headers: nil)
       # update - Update custom role
       # Update a specific custom role by providing all relevant details, including those you want to keep as-is.
       #
@@ -737,7 +714,7 @@ module CldProvisioning
       content_type = http_response.headers.fetch("Content-Type", "application/octet-stream")
       if Utils.match_status_code(http_response.status, ["200"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
@@ -745,14 +722,8 @@ module CldProvisioning
           )
           response_data = http_response.env.response_body
           obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::RoleResponse)
-          response = Models::Operations::UpdateRoleResponse.new(
-            status_code: http_response.status,
-            content_type: content_type,
-            raw_response: http_response,
-            role_response: T.unsafe(obj)
-          )
 
-          return response
+          return obj
         else
           raise(
             ::CldProvisioning::Models::Errors::APIError.new(
@@ -765,7 +736,7 @@ module CldProvisioning
         end
       elsif Utils.match_status_code(http_response.status, ["400", "401", "403", "404", "409"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
@@ -773,7 +744,6 @@ module CldProvisioning
           )
           response_data = http_response.env.response_body
           obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::PermissionsErrorResponse)
-          obj.raw_response = http_response
           raise obj
         else
           raise(
@@ -787,7 +757,7 @@ module CldProvisioning
         end
       elsif Utils.match_status_code(http_response.status, ["500"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
@@ -795,7 +765,6 @@ module CldProvisioning
           )
           response_data = http_response.env.response_body
           obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::PermissionsErrorResponse)
-          obj.raw_response = http_response
           raise obj
         else
           raise(
@@ -846,7 +815,7 @@ module CldProvisioning
         timeout_ms: T.nilable(Integer),
         http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])
       )
-        .returns(Models::Operations::DeleteRoleResponse)
+        .void
     }
     def delete(role_id:, account_id: nil, force: nil, timeout_ms: nil, http_headers: nil)
       # delete - Delete custom role
@@ -940,29 +909,22 @@ module CldProvisioning
 
       content_type = http_response.headers.fetch("Content-Type", "application/octet-stream")
       if Utils.match_status_code(http_response.status, ["204"])
-        http_response = @sdk_configuration.hooks.after_success(
+        @sdk_configuration.hooks.after_success(
           hook_ctx: SDKHooks::AfterSuccessHookContext.new(
             hook_ctx: hook_ctx
           ),
           response: http_response
         )
-        return Models::Operations::DeleteRoleResponse.new(
-          status_code: http_response.status,
-          content_type: content_type,
-          raw_response: http_response
-        )
+        return
       elsif Utils.match_status_code(http_response.status, ["401", "403", "404"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
             response: http_response
           )
-          response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::PermissionsErrorResponse)
-          obj.raw_response = http_response
-          raise obj
+          return
         else
           raise(
             ::CldProvisioning::Models::Errors::APIError.new(
@@ -1010,7 +972,7 @@ module CldProvisioning
         timeout_ms: T.nilable(Integer),
         http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])
       )
-        .returns(Models::Operations::GetRolePrincipalsResponse)
+        .returns(Models::Shared::PrincipalsResponse)
     }
     def list_principals(request:, timeout_ms: nil, http_headers: nil)
       # list_principals - Get a role's principals
@@ -1100,7 +1062,7 @@ module CldProvisioning
       content_type = http_response.headers.fetch("Content-Type", "application/octet-stream")
       if Utils.match_status_code(http_response.status, ["200"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
@@ -1108,14 +1070,8 @@ module CldProvisioning
           )
           response_data = http_response.env.response_body
           obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::PrincipalsResponse)
-          response = Models::Operations::GetRolePrincipalsResponse.new(
-            status_code: http_response.status,
-            content_type: content_type,
-            raw_response: http_response,
-            principals_response: T.unsafe(obj)
-          )
 
-          return response
+          return obj
         else
           raise(
             ::CldProvisioning::Models::Errors::APIError.new(
@@ -1128,7 +1084,7 @@ module CldProvisioning
         end
       elsif Utils.match_status_code(http_response.status, ["401", "403", "404"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
@@ -1136,7 +1092,6 @@ module CldProvisioning
           )
           response_data = http_response.env.response_body
           obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::PermissionsErrorResponse)
-          obj.raw_response = http_response
           raise obj
         else
           raise(
@@ -1181,17 +1136,17 @@ module CldProvisioning
 
     sig {
       params(
-        update_role_principals_request: Models::Shared::UpdateRolePrincipalsRequest,
         role_id: ::String,
+        update_role_principals_request: Models::Shared::UpdateRolePrincipalsRequest,
         account_id: T.nilable(::String),
         timeout_ms: T.nilable(Integer),
         http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])
       )
-        .returns(Models::Operations::UpdateRolePrincipalsResponse)
+        .void
     }
     def update_principals(
-      update_role_principals_request:,
       role_id:,
+      update_role_principals_request:,
       account_id: nil,
       timeout_ms: nil,
       http_headers: nil
@@ -1299,29 +1254,22 @@ module CldProvisioning
 
       content_type = http_response.headers.fetch("Content-Type", "application/octet-stream")
       if Utils.match_status_code(http_response.status, ["200"])
-        http_response = @sdk_configuration.hooks.after_success(
+        @sdk_configuration.hooks.after_success(
           hook_ctx: SDKHooks::AfterSuccessHookContext.new(
             hook_ctx: hook_ctx
           ),
           response: http_response
         )
-        return Models::Operations::UpdateRolePrincipalsResponse.new(
-          status_code: http_response.status,
-          content_type: content_type,
-          raw_response: http_response
-        )
+        return
       elsif Utils.match_status_code(http_response.status, ["400", "401", "403", "404"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
             response: http_response
           )
-          response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::PermissionsErrorResponse)
-          obj.raw_response = http_response
-          raise obj
+          return
         else
           raise(
             ::CldProvisioning::Models::Errors::APIError.new(

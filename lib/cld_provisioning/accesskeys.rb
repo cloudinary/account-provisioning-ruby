@@ -43,7 +43,7 @@ module CldProvisioning
         timeout_ms: T.nilable(Integer),
         http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])
       )
-        .returns(Models::Operations::GetAccessKeysResponse)
+        .returns(Models::Shared::AccessKeysResponse)
     }
     def list(request:, timeout_ms: nil, http_headers: nil)
       # list - Get access keys
@@ -134,7 +134,7 @@ module CldProvisioning
       content_type = http_response.headers.fetch("Content-Type", "application/octet-stream")
       if Utils.match_status_code(http_response.status, ["200"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
@@ -142,14 +142,8 @@ module CldProvisioning
           )
           response_data = http_response.env.response_body
           obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::AccessKeysResponse)
-          response = Models::Operations::GetAccessKeysResponse.new(
-            status_code: http_response.status,
-            content_type: content_type,
-            raw_response: http_response,
-            access_keys_response: T.unsafe(obj)
-          )
 
-          return response
+          return obj
         else
           raise(
             ::CldProvisioning::Models::Errors::APIError.new(
@@ -162,7 +156,7 @@ module CldProvisioning
         end
       elsif Utils.match_status_code(http_response.status, ["401", "404", "420", "429"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
@@ -170,7 +164,6 @@ module CldProvisioning
           )
           response_data = http_response.env.response_body
           obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::ErrorResponse)
-          obj.raw_response = http_response
           raise obj
         else
           raise(
@@ -215,15 +208,15 @@ module CldProvisioning
 
     sig {
       params(
-        access_key_request: Models::Shared::AccessKeyRequest,
         sub_account_id: ::String,
+        access_key_request: Models::Shared::AccessKeyRequest,
         account_id: T.nilable(::String),
         timeout_ms: T.nilable(Integer),
         http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])
       )
-        .returns(Models::Operations::GenerateAccessKeyResponse)
+        .returns(Models::Shared::AccessKey)
     }
-    def generate(access_key_request:, sub_account_id:, account_id: nil, timeout_ms: nil, http_headers: nil)
+    def generate(sub_account_id:, access_key_request:, account_id: nil, timeout_ms: nil, http_headers: nil)
       # generate - Generate an access key
       # Generate a new access key.
       # https://cloudinary.com/documentation/provisioning_api#generate_an_access_key - Learn more about generating access keys.
@@ -323,7 +316,7 @@ module CldProvisioning
       content_type = http_response.headers.fetch("Content-Type", "application/octet-stream")
       if Utils.match_status_code(http_response.status, ["200"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
@@ -331,14 +324,8 @@ module CldProvisioning
           )
           response_data = http_response.env.response_body
           obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::AccessKey)
-          response = Models::Operations::GenerateAccessKeyResponse.new(
-            status_code: http_response.status,
-            content_type: content_type,
-            raw_response: http_response,
-            access_key: T.unsafe(obj)
-          )
 
-          return response
+          return obj
         else
           raise(
             ::CldProvisioning::Models::Errors::APIError.new(
@@ -351,7 +338,7 @@ module CldProvisioning
         end
       elsif Utils.match_status_code(http_response.status, ["400", "401", "403", "404", "409", "420", "429"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
@@ -359,7 +346,6 @@ module CldProvisioning
           )
           response_data = http_response.env.response_body
           obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::ErrorResponse)
-          obj.raw_response = http_response
           raise obj
         else
           raise(
@@ -410,7 +396,7 @@ module CldProvisioning
         timeout_ms: T.nilable(Integer),
         http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])
       )
-        .returns(Models::Operations::DeleteAccessKeyByNameResponse)
+        .returns(Models::Shared::SuccessResponse)
     }
     def delete_by_name(sub_account_id:, name:, account_id: nil, timeout_ms: nil, http_headers: nil)
       # delete_by_name - Delete access key by name
@@ -506,7 +492,7 @@ module CldProvisioning
       content_type = http_response.headers.fetch("Content-Type", "application/octet-stream")
       if Utils.match_status_code(http_response.status, ["200"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
@@ -514,14 +500,8 @@ module CldProvisioning
           )
           response_data = http_response.env.response_body
           obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::SuccessResponse)
-          response = Models::Operations::DeleteAccessKeyByNameResponse.new(
-            status_code: http_response.status,
-            content_type: content_type,
-            raw_response: http_response,
-            success_response: T.unsafe(obj)
-          )
 
-          return response
+          return obj
         else
           raise(
             ::CldProvisioning::Models::Errors::APIError.new(
@@ -534,7 +514,7 @@ module CldProvisioning
         end
       elsif Utils.match_status_code(http_response.status, ["400", "401", "403", "404", "420", "429"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
@@ -542,7 +522,6 @@ module CldProvisioning
           )
           response_data = http_response.env.response_body
           obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::ErrorResponse)
-          obj.raw_response = http_response
           raise obj
         else
           raise(
@@ -587,16 +566,16 @@ module CldProvisioning
 
     sig {
       params(
-        access_key_update_request: Models::Shared::AccessKeyUpdateRequest,
         sub_account_id: ::String,
         key_: ::String,
+        access_key_update_request: Models::Shared::AccessKeyUpdateRequest,
         account_id: T.nilable(::String),
         timeout_ms: T.nilable(Integer),
         http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])
       )
-        .returns(Models::Operations::UpdateAccessKeyResponse)
+        .returns(Models::Shared::AccessKey)
     }
-    def update(access_key_update_request:, sub_account_id:, key_:, account_id: nil, timeout_ms: nil, http_headers: nil)
+    def update(sub_account_id:, key_:, access_key_update_request:, account_id: nil, timeout_ms: nil, http_headers: nil)
       # update - Update an access key
       # Update the name and/or status of an existing access key.
       # https://cloudinary.com/documentation/provisioning_api#update_an_access_key - Learn more about updating access keys.
@@ -703,7 +682,7 @@ module CldProvisioning
       content_type = http_response.headers.fetch("Content-Type", "application/octet-stream")
       if Utils.match_status_code(http_response.status, ["200"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
@@ -711,14 +690,8 @@ module CldProvisioning
           )
           response_data = http_response.env.response_body
           obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::AccessKey)
-          response = Models::Operations::UpdateAccessKeyResponse.new(
-            status_code: http_response.status,
-            content_type: content_type,
-            raw_response: http_response,
-            access_key: T.unsafe(obj)
-          )
 
-          return response
+          return obj
         else
           raise(
             ::CldProvisioning::Models::Errors::APIError.new(
@@ -731,7 +704,7 @@ module CldProvisioning
         end
       elsif Utils.match_status_code(http_response.status, ["400", "401", "403", "404", "409", "420", "429"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
@@ -739,7 +712,6 @@ module CldProvisioning
           )
           response_data = http_response.env.response_body
           obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::ErrorResponse)
-          obj.raw_response = http_response
           raise obj
         else
           raise(
@@ -790,7 +762,7 @@ module CldProvisioning
         timeout_ms: T.nilable(Integer),
         http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])
       )
-        .returns(Models::Operations::DeleteAccessKeyResponse)
+        .returns(Models::Shared::SuccessResponse)
     }
     def delete(sub_account_id:, key_:, account_id: nil, timeout_ms: nil, http_headers: nil)
       # delete - Delete access key
@@ -879,7 +851,7 @@ module CldProvisioning
       content_type = http_response.headers.fetch("Content-Type", "application/octet-stream")
       if Utils.match_status_code(http_response.status, ["200"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
@@ -887,14 +859,8 @@ module CldProvisioning
           )
           response_data = http_response.env.response_body
           obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::SuccessResponse)
-          response = Models::Operations::DeleteAccessKeyResponse.new(
-            status_code: http_response.status,
-            content_type: content_type,
-            raw_response: http_response,
-            success_response: T.unsafe(obj)
-          )
 
-          return response
+          return obj
         else
           raise(
             ::CldProvisioning::Models::Errors::APIError.new(
@@ -907,7 +873,7 @@ module CldProvisioning
         end
       elsif Utils.match_status_code(http_response.status, ["400", "401", "403", "404", "420", "429"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
@@ -915,7 +881,6 @@ module CldProvisioning
           )
           response_data = http_response.env.response_body
           obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::ErrorResponse)
-          obj.raw_response = http_response
           raise obj
         else
           raise(

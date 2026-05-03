@@ -39,13 +39,13 @@ module CldProvisioning
 
     sig {
       params(
-        request: Models::Operations::GetEffectivePoliciesRequest,
+        request: T.nilable(Models::Operations::GetEffectivePoliciesRequest),
         timeout_ms: T.nilable(Integer),
         http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])
       )
-        .returns(Models::Operations::GetEffectivePoliciesResponse)
+        .returns(Models::Shared::EffectivePoliciesResponse)
     }
-    def list(request:, timeout_ms: nil, http_headers: nil)
+    def list(request: nil, timeout_ms: nil, http_headers: nil)
       # list - Get effective policies
       # Retrieve all roles (along with their system permission policies) associated with principals, and all custom permission policies directly added to principals, all within a specified scope.
       #
@@ -136,7 +136,7 @@ module CldProvisioning
       content_type = http_response.headers.fetch("Content-Type", "application/octet-stream")
       if Utils.match_status_code(http_response.status, ["200"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
@@ -144,14 +144,8 @@ module CldProvisioning
           )
           response_data = http_response.env.response_body
           obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::EffectivePoliciesResponse)
-          response = Models::Operations::GetEffectivePoliciesResponse.new(
-            status_code: http_response.status,
-            content_type: content_type,
-            raw_response: http_response,
-            effective_policies_response: T.unsafe(obj)
-          )
 
-          return response
+          return obj
         else
           raise(
             ::CldProvisioning::Models::Errors::APIError.new(
@@ -164,7 +158,7 @@ module CldProvisioning
         end
       elsif Utils.match_status_code(http_response.status, ["400", "401", "403", "404"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
@@ -172,7 +166,6 @@ module CldProvisioning
           )
           response_data = http_response.env.response_body
           obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::PermissionsErrorResponse)
-          obj.raw_response = http_response
           raise obj
         else
           raise(
@@ -186,7 +179,7 @@ module CldProvisioning
         end
       elsif Utils.match_status_code(http_response.status, ["500"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
@@ -194,7 +187,6 @@ module CldProvisioning
           )
           response_data = http_response.env.response_body
           obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::PermissionsErrorResponse)
-          obj.raw_response = http_response
           raise obj
         else
           raise(

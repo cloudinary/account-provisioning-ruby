@@ -49,7 +49,7 @@ req = Models::Operations::GetUsersRequest.new(
 )
 res = s.users.list(request: req)
 
-unless res.users_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -63,7 +63,7 @@ end
 
 ### Response
 
-**[T.nilable(Models::Operations::GetUsersResponse)](../../models/operations/getusersresponse.md)**
+**[T.nilable(Models::Shared::UsersResponse)](../../models/operations/usersresponse.md)**
 
 ### Errors
 
@@ -99,7 +99,7 @@ res = s.users.create(request_body: Models::Operations::CreateUserRequestBody.new
   role: Models::Operations::Role::MASTER_ADMIN
 ))
 
-unless res.user.nil?
+unless res.nil?
   # handle response
 end
 
@@ -125,7 +125,7 @@ res = s.users.create(request_body: Models::Operations::CreateUserRequestBody.new
   enabled: true
 ))
 
-unless res.user.nil?
+unless res.nil?
   # handle response
 end
 
@@ -140,7 +140,7 @@ end
 
 ### Response
 
-**[T.nilable(Models::Operations::CreateUserResponse)](../../models/operations/createuserresponse.md)**
+**[T.nilable(Models::Shared::User)](../../models/operations/user.md)**
 
 ### Errors
 
@@ -172,7 +172,7 @@ s = ::CldProvisioning::CldProvisioning.new(
 )
 res = s.users.get(user_id: '0abed8dfcc039ea05e2a1d494fd442')
 
-unless res.user.nil?
+unless res.nil?
   # handle response
 end
 
@@ -187,7 +187,7 @@ end
 
 ### Response
 
-**[T.nilable(Models::Operations::GetUserResponse)](../../models/operations/getuserresponse.md)**
+**[T.nilable(Models::Shared::User)](../../models/operations/user.md)**
 
 ### Errors
 
@@ -224,7 +224,7 @@ res = s.users.update(user_id: '0abed8dfcc039ea05e2a1d494fd442', user_request: Mo
   enabled: true
 ))
 
-unless res.user.nil?
+unless res.nil?
   # handle response
 end
 
@@ -240,7 +240,7 @@ end
 
 ### Response
 
-**[T.nilable(Models::Operations::UpdateUserResponse)](../../models/operations/updateuserresponse.md)**
+**[T.nilable(Models::Shared::User)](../../models/operations/user.md)**
 
 ### Errors
 
@@ -272,7 +272,7 @@ s = ::CldProvisioning::CldProvisioning.new(
 )
 res = s.users.delete(user_id: '0abed8dfcc039ea05e2a1d494fd442')
 
-unless res.success_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -287,7 +287,7 @@ end
 
 ### Response
 
-**[T.nilable(Models::Operations::DeleteUserResponse)](../../models/operations/deleteuserresponse.md)**
+**[T.nilable(Models::Shared::SuccessResponse)](../../models/operations/successresponse.md)**
 
 ### Errors
 
@@ -319,7 +319,7 @@ s = ::CldProvisioning::CldProvisioning.new(
 )
 res = s.users.get_groups(user_id: '0abed8dfcc039ea05e2a1d494fd442')
 
-unless res.user_groups_list_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -334,7 +334,7 @@ end
 
 ### Response
 
-**[T.nilable(Models::Operations::GetGroupsForUserResponse)](../../models/operations/getgroupsforuserresponse.md)**
+**[T.nilable(Models::Shared::UserGroupsListResponse)](../../models/operations/usergroupslistresponse.md)**
 
 ### Errors
 
@@ -366,7 +366,7 @@ s = ::CldProvisioning::CldProvisioning.new(
 )
 res = s.users.list_sub_accounts(user_id: '0abed8dfcc039ea05e2a1d494fd442')
 
-unless res.user_sub_accounts_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -381,7 +381,7 @@ end
 
 ### Response
 
-**[T.nilable(Models::Operations::GetSubAccountsForUserResponse)](../../models/operations/getsubaccountsforuserresponse.md)**
+**[T.nilable(Models::Shared::UserSubAccountsResponse)](../../models/operations/usersubaccountsresponse.md)**
 
 ### Errors
 

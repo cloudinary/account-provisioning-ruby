@@ -38,7 +38,7 @@ s = ::CldProvisioning::CldProvisioning.new(
 )
 res = s.billing_usage.get(year: 2024)
 
-unless res.billing_usage_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -59,7 +59,7 @@ s = ::CldProvisioning::CldProvisioning.new(
 )
 res = s.billing_usage.get(year: 2024)
 
-unless res.billing_usage_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -80,7 +80,7 @@ s = ::CldProvisioning::CldProvisioning.new(
 )
 res = s.billing_usage.get(year: 2024)
 
-unless res.billing_usage_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -101,7 +101,7 @@ s = ::CldProvisioning::CldProvisioning.new(
 )
 res = s.billing_usage.get(year: 2024)
 
-unless res.billing_usage_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -122,7 +122,7 @@ s = ::CldProvisioning::CldProvisioning.new(
 )
 res = s.billing_usage.get(year: 2024)
 
-unless res.billing_usage_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -138,7 +138,7 @@ end
 
 ### Response
 
-**[T.nilable(Models::Operations::GetBillingUsageResponse)](../../models/operations/getbillingusageresponse.md)**
+**[T.nilable(T::Array[Models::Shared::BillingUsageResponse])](../../models/operations/.md)**
 
 ### Errors
 

@@ -34,7 +34,7 @@ req = Models::Operations::GetEffectivePoliciesRequest.new(
 )
 res = s.effective_policies.list(request: req)
 
-unless res.effective_policies_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -48,7 +48,7 @@ end
 
 ### Response
 
-**[T.nilable(Models::Operations::GetEffectivePoliciesResponse)](../../models/operations/geteffectivepoliciesresponse.md)**
+**[T.nilable(Models::Shared::EffectivePoliciesResponse)](../../models/operations/effectivepoliciesresponse.md)**
 
 ### Errors
 

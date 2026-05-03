@@ -40,7 +40,7 @@ req = Models::Operations::GetProductEnvironmentsRequest.new(
 )
 res = s.product_environments.list(request: req)
 
-unless res.product_environments_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -54,7 +54,7 @@ end
 
 ### Response
 
-**[T.nilable(Models::Operations::GetProductEnvironmentsResponse)](../../models/operations/getproductenvironmentsresponse.md)**
+**[T.nilable(Models::Shared::ProductEnvironmentsResponse)](../../models/operations/productenvironmentsresponse.md)**
 
 ### Errors
 
@@ -92,7 +92,7 @@ res = s.product_environments.create(product_environment_request: Models::Shared:
   base_sub_account_id: '0aaaaa1bbbbb2ccccc3ddddd4eeeee5f'
 ))
 
-unless res.product_environment.nil?
+unless res.nil?
   # handle response
 end
 
@@ -107,7 +107,7 @@ end
 
 ### Response
 
-**[T.nilable(Models::Operations::CreateProductEnvironmentResponse)](../../models/operations/createproductenvironmentresponse.md)**
+**[T.nilable(Models::Shared::ProductEnvironment)](../../models/operations/productenvironment.md)**
 
 ### Errors
 
@@ -139,7 +139,7 @@ s = ::CldProvisioning::CldProvisioning.new(
 )
 res = s.product_environments.get(sub_account_id: 'abcde1fghij2klmno3pqrst4uvwxy5z')
 
-unless res.product_environment.nil?
+unless res.nil?
   # handle response
 end
 
@@ -160,7 +160,7 @@ s = ::CldProvisioning::CldProvisioning.new(
 )
 res = s.product_environments.get(sub_account_id: 'abcde1fghij2klmno3pqrst4uvwxy5z')
 
-unless res.product_environment.nil?
+unless res.nil?
   # handle response
 end
 
@@ -175,7 +175,7 @@ end
 
 ### Response
 
-**[T.nilable(Models::Operations::GetProductEnvironmentResponse)](../../models/operations/getproductenvironmentresponse.md)**
+**[T.nilable(Models::Shared::ProductEnvironment)](../../models/operations/productenvironment.md)**
 
 ### Errors
 
@@ -210,7 +210,7 @@ res = s.product_environments.update(sub_account_id: 'abcde1fghij2klmno3pqrst4uvw
   cloud_name: 'product3'
 ))
 
-unless res.product_environment.nil?
+unless res.nil?
   # handle response
 end
 
@@ -226,7 +226,7 @@ end
 
 ### Response
 
-**[T.nilable(Models::Operations::UpdateProductEnvironmentResponse)](../../models/operations/updateproductenvironmentresponse.md)**
+**[T.nilable(Models::Shared::ProductEnvironment)](../../models/operations/productenvironment.md)**
 
 ### Errors
 
@@ -258,7 +258,7 @@ s = ::CldProvisioning::CldProvisioning.new(
 )
 res = s.product_environments.delete(sub_account_id: 'abcde1fghij2klmno3pqrst4uvwxy5z')
 
-unless res.success_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -273,7 +273,7 @@ end
 
 ### Response
 
-**[T.nilable(Models::Operations::DeleteProductEnvironmentResponse)](../../models/operations/deleteproductenvironmentresponse.md)**
+**[T.nilable(Models::Shared::SuccessResponse)](../../models/operations/successresponse.md)**
 
 ### Errors
 

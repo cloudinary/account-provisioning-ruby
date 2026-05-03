@@ -39,7 +39,7 @@ req = Models::Operations::GetAccessKeysRequest.new(
 )
 res = s.access_keys.list(request: req)
 
-unless res.access_keys_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -53,7 +53,7 @@ end
 
 ### Response
 
-**[T.nilable(Models::Operations::GetAccessKeysResponse)](../../models/operations/getaccesskeysresponse.md)**
+**[T.nilable(Models::Shared::AccessKeysResponse)](../../models/operations/accesskeysresponse.md)**
 
 ### Errors
 
@@ -88,7 +88,7 @@ res = s.access_keys.generate(sub_account_id: 'abcde1fghij2klmno3pqrst4uvwxy5z', 
   enabled: true
 ))
 
-unless res.access_key.nil?
+unless res.nil?
   # handle response
 end
 
@@ -104,7 +104,7 @@ end
 
 ### Response
 
-**[T.nilable(Models::Operations::GenerateAccessKeyResponse)](../../models/operations/generateaccesskeyresponse.md)**
+**[T.nilable(Models::Shared::AccessKey)](../../models/operations/accesskey.md)**
 
 ### Errors
 
@@ -136,7 +136,7 @@ s = ::CldProvisioning::CldProvisioning.new(
 )
 res = s.access_keys.delete_by_name(sub_account_id: 'abcde1fghij2klmno3pqrst4uvwxy5z', name: 'main_key')
 
-unless res.success_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -152,7 +152,7 @@ end
 
 ### Response
 
-**[T.nilable(Models::Operations::DeleteAccessKeyByNameResponse)](../../models/operations/deleteaccesskeybynameresponse.md)**
+**[T.nilable(Models::Shared::SuccessResponse)](../../models/operations/successresponse.md)**
 
 ### Errors
 
@@ -188,7 +188,7 @@ res = s.access_keys.update(sub_account_id: 'abcde1fghij2klmno3pqrst4uvwxy5z', ke
   dedicated_for: Models::Shared::DedicatedFor::WEBHOOKS
 ))
 
-unless res.access_key.nil?
+unless res.nil?
   # handle response
 end
 
@@ -205,7 +205,7 @@ end
 
 ### Response
 
-**[T.nilable(Models::Operations::UpdateAccessKeyResponse)](../../models/operations/updateaccesskeyresponse.md)**
+**[T.nilable(Models::Shared::AccessKey)](../../models/operations/accesskey.md)**
 
 ### Errors
 
@@ -237,7 +237,7 @@ s = ::CldProvisioning::CldProvisioning.new(
 )
 res = s.access_keys.delete(sub_account_id: 'abcde1fghij2klmno3pqrst4uvwxy5z', key_: '814814814814814')
 
-unless res.success_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -253,7 +253,7 @@ end
 
 ### Response
 
-**[T.nilable(Models::Operations::DeleteAccessKeyResponse)](../../models/operations/deleteaccesskeyresponse.md)**
+**[T.nilable(Models::Shared::SuccessResponse)](../../models/operations/successresponse.md)**
 
 ### Errors
 

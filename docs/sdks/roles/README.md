@@ -46,7 +46,7 @@ req = Models::Operations::GetRolesRequest.new(
 )
 res = s.roles.list(request: req)
 
-unless res.roles_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -60,7 +60,7 @@ end
 
 ### Response
 
-**[T.nilable(Models::Operations::GetRolesResponse)](../../models/operations/getrolesresponse.md)**
+**[T.nilable(Models::Shared::RolesResponse)](../../models/operations/rolesresponse.md)**
 
 ### Errors
 
@@ -100,7 +100,7 @@ res = s.roles.create(create_role: Models::Shared::CreateRole.new(
   ]
 ))
 
-unless res.role_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -131,7 +131,7 @@ res = s.roles.create(create_role: Models::Shared::CreateRole.new(
   ]
 ))
 
-unless res.role_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -162,7 +162,7 @@ res = s.roles.create(create_role: Models::Shared::CreateRole.new(
   ]
 ))
 
-unless res.role_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -193,7 +193,7 @@ res = s.roles.create(create_role: Models::Shared::CreateRole.new(
   ]
 ))
 
-unless res.role_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -224,7 +224,7 @@ res = s.roles.create(create_role: Models::Shared::CreateRole.new(
   ]
 ))
 
-unless res.role_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -255,7 +255,7 @@ res = s.roles.create(create_role: Models::Shared::CreateRole.new(
   ]
 ))
 
-unless res.role_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -286,7 +286,7 @@ res = s.roles.create(create_role: Models::Shared::CreateRole.new(
   ]
 ))
 
-unless res.role_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -317,7 +317,7 @@ res = s.roles.create(create_role: Models::Shared::CreateRole.new(
   ]
 ))
 
-unless res.role_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -332,7 +332,7 @@ end
 
 ### Response
 
-**[T.nilable(Models::Operations::CreateRoleResponse)](../../models/operations/createroleresponse.md)**
+**[T.nilable(Models::Shared::RoleResponse)](../../models/operations/roleresponse.md)**
 
 ### Errors
 
@@ -372,7 +372,7 @@ req = Models::Operations::GetRoleRequest.new(
 )
 res = s.roles.get(request: req)
 
-unless res.role_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -386,7 +386,7 @@ end
 
 ### Response
 
-**[T.nilable(Models::Operations::GetRoleResponse)](../../models/operations/getroleresponse.md)**
+**[T.nilable(Models::Shared::RoleResponse)](../../models/operations/roleresponse.md)**
 
 ### Errors
 
@@ -425,7 +425,7 @@ res = s.roles.update(role_id: '<id>', role: Models::Shared::Role.new(
   ]
 ))
 
-unless res.role_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -453,7 +453,7 @@ res = s.roles.update(role_id: '<id>', role: Models::Shared::Role.new(
   ]
 ))
 
-unless res.role_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -481,7 +481,7 @@ res = s.roles.update(role_id: '<id>', role: Models::Shared::Role.new(
   ]
 ))
 
-unless res.role_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -509,7 +509,7 @@ res = s.roles.update(role_id: '<id>', role: Models::Shared::Role.new(
   ]
 ))
 
-unless res.role_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -525,7 +525,7 @@ end
 
 ### Response
 
-**[T.nilable(Models::Operations::UpdateRoleResponse)](../../models/operations/updateroleresponse.md)**
+**[T.nilable(Models::Shared::RoleResponse)](../../models/operations/roleresponse.md)**
 
 ### Errors
 
@@ -555,9 +555,6 @@ s = ::CldProvisioning::CldProvisioning.new(
 )
 res = s.roles.delete(role_id: '<id>')
 
-if res.status_code == 200
-  # handle response
-end
 
 ```
 
@@ -568,10 +565,6 @@ end
 | `role_id`                                                                                                                                                                                                                                                                                               | *::String*                                                                                                                                                                                                                                                                                              | :heavy_check_mark:                                                                                                                                                                                                                                                                                      | A unique identifier for the role.                                                                                                                                                                                                                                                                       |
 | `account_id`                                                                                                                                                                                                                                                                                            | *T.nilable(::String)*                                                                                                                                                                                                                                                                                   | :heavy_minus_sign:                                                                                                                                                                                                                                                                                      | Account ID                                                                                                                                                                                                                                                                                              |
 | `force`                                                                                                                                                                                                                                                                                                 | *T.nilable(T::Boolean)*                                                                                                                                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                                                                                                                                                      | Determines whether the role should be deleted when it has associated principals.<br/>- `true`: Deletes the role even if it has associated principals.<br/>- `false` (default): Prevents deletion if the role has associated principals. You must manually unassociate the principals before deleting the role.<br/> |
-
-### Response
-
-**[T.nilable(Models::Operations::DeleteRoleResponse)](../../models/operations/deleteroleresponse.md)**
 
 ### Errors
 
@@ -611,7 +604,7 @@ req = Models::Operations::GetRolePrincipalsRequest.new(
 )
 res = s.roles.list_principals(request: req)
 
-unless res.principals_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -643,7 +636,7 @@ req = Models::Operations::GetRolePrincipalsRequest.new(
 )
 res = s.roles.list_principals(request: req)
 
-unless res.principals_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -657,7 +650,7 @@ end
 
 ### Response
 
-**[T.nilable(Models::Operations::GetRolePrincipalsResponse)](../../models/operations/getroleprincipalsresponse.md)**
+**[T.nilable(Models::Shared::PrincipalsResponse)](../../models/operations/principalsresponse.md)**
 
 ### Errors
 
@@ -696,9 +689,6 @@ res = s.roles.update_principals(role_id: '<id>', update_role_principals_request:
   ]
 ))
 
-if res.status_code == 200
-  # handle response
-end
 
 ```
 ### Example Usage: missingFieldsErrorExample
@@ -727,9 +717,6 @@ res = s.roles.update_principals(role_id: '<id>', update_role_principals_request:
   ]
 ))
 
-if res.status_code == 200
-  # handle response
-end
 
 ```
 
@@ -740,10 +727,6 @@ end
 | `role_id`                                                                                         | *::String*                                                                                        | :heavy_check_mark:                                                                                | A unique identifier for the role.                                                                 |
 | `update_role_principals_request`                                                                  | [Models::Shared::UpdateRolePrincipalsRequest](../../models/shared/updateroleprincipalsrequest.md) | :heavy_check_mark:                                                                                | Principals details.                                                                               |
 | `account_id`                                                                                      | *T.nilable(::String)*                                                                             | :heavy_minus_sign:                                                                                | Account ID                                                                                        |
-
-### Response
-
-**[T.nilable(Models::Operations::UpdateRolePrincipalsResponse)](../../models/operations/updateroleprincipalsresponse.md)**
 
 ### Errors
 

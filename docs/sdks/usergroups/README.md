@@ -36,7 +36,7 @@ s = ::CldProvisioning::CldProvisioning.new(
 )
 res = s.user_groups.list(extended_details: true)
 
-unless res.user_groups_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -57,7 +57,7 @@ s = ::CldProvisioning::CldProvisioning.new(
 )
 res = s.user_groups.list(extended_details: true)
 
-unless res.user_groups_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -72,7 +72,7 @@ end
 
 ### Response
 
-**[T.nilable(Models::Operations::GetUserGroupsResponse)](../../models/operations/getusergroupsresponse.md)**
+**[T.nilable(Models::Shared::UserGroupsResponse)](../../models/operations/usergroupsresponse.md)**
 
 ### Errors
 
@@ -107,7 +107,7 @@ res = s.user_groups.create(user_group_request: Models::Shared::UserGroupRequest.
   extended_details: false
 ))
 
-unless res.user_group.nil?
+unless res.nil?
   # handle response
 end
 
@@ -122,7 +122,7 @@ end
 
 ### Response
 
-**[T.nilable(Models::Operations::CreateUserGroupResponse)](../../models/operations/createusergroupresponse.md)**
+**[T.nilable(Models::Shared::UserGroup)](../../models/operations/usergroup.md)**
 
 ### Errors
 
@@ -154,7 +154,7 @@ s = ::CldProvisioning::CldProvisioning.new(
 )
 res = s.user_groups.get(group_id: '7f08f1f1fc910bf1f25274aef11d27', extended_details: true)
 
-unless res.user_group.nil?
+unless res.nil?
   # handle response
 end
 
@@ -175,7 +175,7 @@ s = ::CldProvisioning::CldProvisioning.new(
 )
 res = s.user_groups.get(group_id: '7f08f1f1fc910bf1f25274aef11d27', extended_details: true)
 
-unless res.user_group.nil?
+unless res.nil?
   # handle response
 end
 
@@ -191,7 +191,7 @@ end
 
 ### Response
 
-**[T.nilable(Models::Operations::GetUserGroupResponse)](../../models/operations/getusergroupresponse.md)**
+**[T.nilable(Models::Shared::UserGroup)](../../models/operations/usergroup.md)**
 
 ### Errors
 
@@ -225,7 +225,7 @@ res = s.user_groups.update(group_id: '7f08f1f1fc910bf1f25274aef11d27', user_grou
   name: 'Designers and Creatives'
 ))
 
-unless res.user_group.nil?
+unless res.nil?
   # handle response
 end
 
@@ -249,7 +249,7 @@ res = s.user_groups.update(group_id: '7f08f1f1fc910bf1f25274aef11d27', user_grou
   extended_details: false
 ))
 
-unless res.user_group.nil?
+unless res.nil?
   # handle response
 end
 
@@ -265,7 +265,7 @@ end
 
 ### Response
 
-**[T.nilable(Models::Operations::UpdateUserGroupResponse)](../../models/operations/updateusergroupresponse.md)**
+**[T.nilable(Models::Shared::UserGroup)](../../models/operations/usergroup.md)**
 
 ### Errors
 
@@ -297,7 +297,7 @@ s = ::CldProvisioning::CldProvisioning.new(
 )
 res = s.user_groups.delete(group_id: '7f08f1f1fc910bf1f25274aef11d27')
 
-unless res.success_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -312,7 +312,7 @@ end
 
 ### Response
 
-**[T.nilable(Models::Operations::DeleteUserGroupResponse)](../../models/operations/deleteusergroupresponse.md)**
+**[T.nilable(Models::Shared::SuccessResponse)](../../models/operations/successresponse.md)**
 
 ### Errors
 
@@ -344,7 +344,7 @@ s = ::CldProvisioning::CldProvisioning.new(
 )
 res = s.user_groups.list_users(group_id: '7f08f1f1fc910bf1f25274aef11d27')
 
-unless res.user_group_users_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -359,7 +359,7 @@ end
 
 ### Response
 
-**[T.nilable(Models::Operations::GetUsersInUserGroupResponse)](../../models/operations/getusersinusergroupresponse.md)**
+**[T.nilable(Models::Shared::UserGroupUsersResponse)](../../models/operations/usergroupusersresponse.md)**
 
 ### Errors
 
@@ -391,7 +391,7 @@ s = ::CldProvisioning::CldProvisioning.new(
 )
 res = s.user_groups.add_user(group_id: '7f08f1f1fc910bf1f25274aef11d27', user_id: '0abed8dfcc039ea05e2a1d494fd442')
 
-unless res.user_group_user.nil?
+unless res.nil?
   # handle response
 end
 
@@ -407,7 +407,7 @@ end
 
 ### Response
 
-**[T.nilable(Models::Operations::AddUserToUserGroupResponse)](../../models/operations/addusertousergroupresponse.md)**
+**[T.nilable(Models::Shared::UserGroupUser)](../../models/operations/usergroupuser.md)**
 
 ### Errors
 
@@ -439,7 +439,7 @@ s = ::CldProvisioning::CldProvisioning.new(
 )
 res = s.user_groups.remove_user(group_id: '7f08f1f1fc910bf1f25274aef11d27', user_id: '0abed8dfcc039ea05e2a1d494fd442')
 
-unless res.user_group_users_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -455,7 +455,7 @@ end
 
 ### Response
 
-**[T.nilable(Models::Operations::RemoveUserFromUserGroupResponse)](../../models/operations/removeuserfromusergroupresponse.md)**
+**[T.nilable(Models::Shared::UserGroupUsersResponse)](../../models/operations/usergroupusersresponse.md)**
 
 ### Errors
 

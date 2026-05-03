@@ -42,7 +42,7 @@ module CldProvisioning
 
     sig {
       params(timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(
-        Models::Operations::GetSystemRolesAndPoliciesCatalogResponse
+        Models::Shared::SystemRolesAndPoliciesCatalogResponse
       )
     }
     def get_catalog(timeout_ms: nil, http_headers: nil)
@@ -120,7 +120,7 @@ module CldProvisioning
       content_type = http_response.headers.fetch("Content-Type", "application/octet-stream")
       if Utils.match_status_code(http_response.status, ["200"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
@@ -131,14 +131,8 @@ module CldProvisioning
             JSON.parse(response_data),
             Models::Shared::SystemRolesAndPoliciesCatalogResponse
           )
-          response = Models::Operations::GetSystemRolesAndPoliciesCatalogResponse.new(
-            status_code: http_response.status,
-            content_type: content_type,
-            raw_response: http_response,
-            system_roles_and_policies_catalog_response: T.unsafe(obj)
-          )
 
-          return response
+          return obj
         else
           raise(
             ::CldProvisioning::Models::Errors::APIError.new(
@@ -186,7 +180,7 @@ module CldProvisioning
         timeout_ms: T.nilable(Integer),
         http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])
       )
-        .returns(Models::Operations::ValidateCedarPolicyResponse)
+        .returns(Models::Shared::ValidateCedarPolicyResponse)
     }
     def validate_policy(request:, timeout_ms: nil, http_headers: nil)
       # validate_policy - Validate a Cedar policy
@@ -276,7 +270,7 @@ module CldProvisioning
       content_type = http_response.headers.fetch("Content-Type", "application/octet-stream")
       if Utils.match_status_code(http_response.status, ["200"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
@@ -284,14 +278,8 @@ module CldProvisioning
           )
           response_data = http_response.env.response_body
           obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::ValidateCedarPolicyResponse)
-          response = Models::Operations::ValidateCedarPolicyResponse.new(
-            status_code: http_response.status,
-            content_type: content_type,
-            raw_response: http_response,
-            validate_cedar_policy_response: T.unsafe(obj)
-          )
 
-          return response
+          return obj
         else
           raise(
             ::CldProvisioning::Models::Errors::APIError.new(
@@ -335,7 +323,7 @@ module CldProvisioning
 
     sig {
       params(timeout_ms: T.nilable(Integer), http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])).returns(
-        Models::Operations::GetCedarSchemaResponse
+        Models::Shared::CedarSchemaResponse
       )
     }
     def get_schema(timeout_ms: nil, http_headers: nil)
@@ -413,7 +401,7 @@ module CldProvisioning
       content_type = http_response.headers.fetch("Content-Type", "application/octet-stream")
       if Utils.match_status_code(http_response.status, ["200"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
@@ -421,14 +409,8 @@ module CldProvisioning
           )
           response_data = http_response.env.response_body
           obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::CedarSchemaResponse)
-          response = Models::Operations::GetCedarSchemaResponse.new(
-            status_code: http_response.status,
-            content_type: content_type,
-            raw_response: http_response,
-            cedar_schema_response: T.unsafe(obj)
-          )
 
-          return response
+          return obj
         else
           raise(
             ::CldProvisioning::Models::Errors::APIError.new(

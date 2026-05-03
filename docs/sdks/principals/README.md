@@ -46,7 +46,7 @@ req = Models::Operations::GetPrincipalRolesRequest.new(
 )
 res = s.principals.list_roles(request: req)
 
-unless res.principal_roles_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -81,7 +81,7 @@ req = Models::Operations::GetPrincipalRolesRequest.new(
 )
 res = s.principals.list_roles(request: req)
 
-unless res.principal_roles_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -95,7 +95,7 @@ end
 
 ### Response
 
-**[T.nilable(Models::Operations::GetPrincipalRolesResponse)](../../models/operations/getprincipalrolesresponse.md)**
+**[T.nilable(Models::Shared::PrincipalRolesResponse)](../../models/operations/principalrolesresponse.md)**
 
 ### Errors
 
@@ -138,9 +138,6 @@ res = s.principals.update_roles(update_principal_roles_request: Models::Shared::
   ]
 ))
 
-if res.status_code == 200
-  # handle response
-end
 
 ```
 ### Example Usage: missingPrincipalFieldsErrorExample
@@ -172,9 +169,6 @@ res = s.principals.update_roles(update_principal_roles_request: Models::Shared::
   ]
 ))
 
-if res.status_code == 200
-  # handle response
-end
 
 ```
 
@@ -184,10 +178,6 @@ end
 | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
 | `update_principal_roles_request`                                                                  | [Models::Shared::UpdatePrincipalRolesRequest](../../models/shared/updateprincipalrolesrequest.md) | :heavy_check_mark:                                                                                | Principal and roles details.                                                                      |
 | `account_id`                                                                                      | *T.nilable(::String)*                                                                             | :heavy_minus_sign:                                                                                | Account ID                                                                                        |
-
-### Response
-
-**[T.nilable(Models::Operations::UpdatePrincipalRolesResponse)](../../models/operations/updateprincipalrolesresponse.md)**
 
 ### Errors
 
@@ -241,7 +231,7 @@ req = Models::Operations::InspectRequest.new(
 )
 res = s.principals.inspect(request: req)
 
-unless res.principal_roles_inspect_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -273,7 +263,7 @@ req = Models::Operations::InspectRequest.new(
 )
 res = s.principals.inspect(request: req)
 
-unless res.principal_roles_inspect_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -305,7 +295,7 @@ req = Models::Operations::InspectRequest.new(
 )
 res = s.principals.inspect(request: req)
 
-unless res.principal_roles_inspect_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -319,7 +309,7 @@ end
 
 ### Response
 
-**[T.nilable(Models::Operations::InspectResponse)](../../models/operations/inspectresponse.md)**
+**[T.nilable(Models::Shared::PrincipalRolesInspectResponse)](../../models/operations/principalrolesinspectresponse.md)**
 
 ### Errors
 
@@ -380,7 +370,7 @@ res = s.principals.inspect_multiple(inspect_request: Models::Shared::InspectRequ
   policy_parameters: Models::Shared::InspectRequestPolicyParameters.new
 ))
 
-unless res.principal_roles_inspect_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -409,7 +399,7 @@ res = s.principals.inspect_multiple(inspect_request: Models::Shared::InspectRequ
   ]
 ))
 
-unless res.principal_roles_inspect_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -424,7 +414,7 @@ end
 
 ### Response
 
-**[T.nilable(Models::Operations::InspectMultipleResponse)](../../models/operations/inspectmultipleresponse.md)**
+**[T.nilable(Models::Shared::PrincipalRolesInspectResponse)](../../models/operations/principalrolesinspectresponse.md)**
 
 ### Errors
 

@@ -45,7 +45,7 @@ module CldProvisioning
         timeout_ms: T.nilable(Integer),
         http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])
       )
-        .returns(Models::Operations::GetBillingUsageResponse)
+        .returns(T::Array[Models::Shared::BillingUsageResponse])
     }
     def get(account_id: nil, year: nil, include_prodenv_breakdown: nil, timeout_ms: nil, http_headers: nil)
       # get - Get billing usage information
@@ -152,7 +152,7 @@ module CldProvisioning
       content_type = http_response.headers.fetch("Content-Type", "application/octet-stream")
       if Utils.match_status_code(http_response.status, ["200"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
@@ -163,14 +163,8 @@ module CldProvisioning
             JSON.parse(response_data),
             Crystalline::Array.new(Models::Shared::BillingUsageResponse)
           )
-          response = Models::Operations::GetBillingUsageResponse.new(
-            status_code: http_response.status,
-            content_type: content_type,
-            raw_response: http_response,
-            billing_usage_response: T.unsafe(obj)
-          )
 
-          return response
+          return obj
         else
           raise(
             ::CldProvisioning::Models::Errors::APIError.new(
@@ -183,7 +177,7 @@ module CldProvisioning
         end
       elsif Utils.match_status_code(http_response.status, ["400", "401", "403", "404", "429"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
@@ -191,7 +185,6 @@ module CldProvisioning
           )
           response_data = http_response.env.response_body
           obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::ErrorResponse)
-          obj.raw_response = http_response
           raise obj
         else
           raise(

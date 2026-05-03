@@ -39,13 +39,13 @@ module CldProvisioning
 
     sig {
       params(
-        request: Models::Operations::GetCustomPoliciesRequest,
+        request: T.nilable(Models::Operations::GetCustomPoliciesRequest),
         timeout_ms: T.nilable(Integer),
         http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])
       )
-        .returns(Models::Operations::GetCustomPoliciesResponse)
+        .returns(Models::Shared::CustomPoliciesResponse)
     }
-    def list(request:, timeout_ms: nil, http_headers: nil)
+    def list(request: nil, timeout_ms: nil, http_headers: nil)
       # list - Get custom policies
       # Retrieve all custom permission policies defined for a specific scope. The scope can be at the account level or within a specific product environment.
       #
@@ -139,7 +139,7 @@ module CldProvisioning
       content_type = http_response.headers.fetch("Content-Type", "application/octet-stream")
       if Utils.match_status_code(http_response.status, ["200"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
@@ -147,14 +147,8 @@ module CldProvisioning
           )
           response_data = http_response.env.response_body
           obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::CustomPoliciesResponse)
-          response = Models::Operations::GetCustomPoliciesResponse.new(
-            status_code: http_response.status,
-            content_type: content_type,
-            raw_response: http_response,
-            custom_policies_response: T.unsafe(obj)
-          )
 
-          return response
+          return obj
         else
           raise(
             ::CldProvisioning::Models::Errors::APIError.new(
@@ -167,7 +161,7 @@ module CldProvisioning
         end
       elsif Utils.match_status_code(http_response.status, ["401", "403"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
@@ -175,7 +169,6 @@ module CldProvisioning
           )
           response_data = http_response.env.response_body
           obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::PermissionsErrorResponse)
-          obj.raw_response = http_response
           raise obj
         else
           raise(
@@ -189,7 +182,7 @@ module CldProvisioning
         end
       elsif Utils.match_status_code(http_response.status, ["500"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
@@ -197,7 +190,6 @@ module CldProvisioning
           )
           response_data = http_response.env.response_body
           obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::PermissionsErrorResponse)
-          obj.raw_response = http_response
           raise obj
         else
           raise(
@@ -247,7 +239,7 @@ module CldProvisioning
         timeout_ms: T.nilable(Integer),
         http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])
       )
-        .returns(Models::Operations::CreateCustomPolicyResponse)
+        .returns(Models::Shared::CustomPolicyResponse)
     }
     def create(custom_policy:, account_id: nil, timeout_ms: nil, http_headers: nil)
       # create - Create custom policy
@@ -348,7 +340,7 @@ module CldProvisioning
       content_type = http_response.headers.fetch("Content-Type", "application/octet-stream")
       if Utils.match_status_code(http_response.status, ["201"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
@@ -356,14 +348,8 @@ module CldProvisioning
           )
           response_data = http_response.env.response_body
           obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::CustomPolicyResponse)
-          response = Models::Operations::CreateCustomPolicyResponse.new(
-            status_code: http_response.status,
-            content_type: content_type,
-            raw_response: http_response,
-            custom_policy_response: T.unsafe(obj)
-          )
 
-          return response
+          return obj
         else
           raise(
             ::CldProvisioning::Models::Errors::APIError.new(
@@ -376,7 +362,7 @@ module CldProvisioning
         end
       elsif Utils.match_status_code(http_response.status, ["400", "401", "403", "409"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
@@ -384,7 +370,6 @@ module CldProvisioning
           )
           response_data = http_response.env.response_body
           obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::PermissionsErrorResponse)
-          obj.raw_response = http_response
           raise obj
         else
           raise(
@@ -398,7 +383,7 @@ module CldProvisioning
         end
       elsif Utils.match_status_code(http_response.status, ["500"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
@@ -406,7 +391,6 @@ module CldProvisioning
           )
           response_data = http_response.env.response_body
           obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::PermissionsErrorResponse)
-          obj.raw_response = http_response
           raise obj
         else
           raise(
@@ -456,7 +440,7 @@ module CldProvisioning
         timeout_ms: T.nilable(Integer),
         http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])
       )
-        .returns(Models::Operations::GetCustomPolicyResponse)
+        .returns(Models::Shared::CustomPolicyResponse)
     }
     def get(policy_id:, account_id: nil, timeout_ms: nil, http_headers: nil)
       # get - Get custom policy
@@ -543,7 +527,7 @@ module CldProvisioning
       content_type = http_response.headers.fetch("Content-Type", "application/octet-stream")
       if Utils.match_status_code(http_response.status, ["200"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
@@ -551,14 +535,8 @@ module CldProvisioning
           )
           response_data = http_response.env.response_body
           obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::CustomPolicyResponse)
-          response = Models::Operations::GetCustomPolicyResponse.new(
-            status_code: http_response.status,
-            content_type: content_type,
-            raw_response: http_response,
-            custom_policy_response: T.unsafe(obj)
-          )
 
-          return response
+          return obj
         else
           raise(
             ::CldProvisioning::Models::Errors::APIError.new(
@@ -571,7 +549,7 @@ module CldProvisioning
         end
       elsif Utils.match_status_code(http_response.status, ["401", "403", "404"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
@@ -579,7 +557,6 @@ module CldProvisioning
           )
           response_data = http_response.env.response_body
           obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::PermissionsErrorResponse)
-          obj.raw_response = http_response
           raise obj
         else
           raise(
@@ -624,15 +601,15 @@ module CldProvisioning
 
     sig {
       params(
-        update_custom_policy: Models::Shared::UpdateCustomPolicy,
         policy_id: ::String,
+        update_custom_policy: Models::Shared::UpdateCustomPolicy,
         account_id: T.nilable(::String),
         timeout_ms: T.nilable(Integer),
         http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])
       )
-        .returns(Models::Operations::UpdateCustomPolicyResponse)
+        .returns(Models::Shared::CustomPolicyResponse)
     }
-    def update(update_custom_policy:, policy_id:, account_id: nil, timeout_ms: nil, http_headers: nil)
+    def update(policy_id:, update_custom_policy:, account_id: nil, timeout_ms: nil, http_headers: nil)
       # update - Update custom policy
       # Update a specific custom policy by providing the entire policy entity in the request body. Ensure the new `policy_statement` includes modifications. Existing permissions will be replaced with the new data.
       #
@@ -734,7 +711,7 @@ module CldProvisioning
       content_type = http_response.headers.fetch("Content-Type", "application/octet-stream")
       if Utils.match_status_code(http_response.status, ["200"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
@@ -742,14 +719,8 @@ module CldProvisioning
           )
           response_data = http_response.env.response_body
           obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Shared::CustomPolicyResponse)
-          response = Models::Operations::UpdateCustomPolicyResponse.new(
-            status_code: http_response.status,
-            content_type: content_type,
-            raw_response: http_response,
-            custom_policy_response: T.unsafe(obj)
-          )
 
-          return response
+          return obj
         else
           raise(
             ::CldProvisioning::Models::Errors::APIError.new(
@@ -762,7 +733,7 @@ module CldProvisioning
         end
       elsif Utils.match_status_code(http_response.status, ["400", "401", "403", "404", "409"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
@@ -770,7 +741,6 @@ module CldProvisioning
           )
           response_data = http_response.env.response_body
           obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::PermissionsErrorResponse)
-          obj.raw_response = http_response
           raise obj
         else
           raise(
@@ -784,7 +754,7 @@ module CldProvisioning
         end
       elsif Utils.match_status_code(http_response.status, ["500"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
@@ -792,7 +762,6 @@ module CldProvisioning
           )
           response_data = http_response.env.response_body
           obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::PermissionsErrorResponse)
-          obj.raw_response = http_response
           raise obj
         else
           raise(
@@ -842,7 +811,7 @@ module CldProvisioning
         timeout_ms: T.nilable(Integer),
         http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])
       )
-        .returns(Models::Operations::DeleteCustomPolicyResponse)
+        .void
     }
     def delete(policy_id:, account_id: nil, timeout_ms: nil, http_headers: nil)
       # delete - Delete custom policy
@@ -928,29 +897,22 @@ module CldProvisioning
 
       content_type = http_response.headers.fetch("Content-Type", "application/octet-stream")
       if Utils.match_status_code(http_response.status, ["204"])
-        http_response = @sdk_configuration.hooks.after_success(
+        @sdk_configuration.hooks.after_success(
           hook_ctx: SDKHooks::AfterSuccessHookContext.new(
             hook_ctx: hook_ctx
           ),
           response: http_response
         )
-        return Models::Operations::DeleteCustomPolicyResponse.new(
-          status_code: http_response.status,
-          content_type: content_type,
-          raw_response: http_response
-        )
+        return
       elsif Utils.match_status_code(http_response.status, ["401", "403", "404"])
         if Utils.match_content_type(content_type, "application/json")
-          http_response = @sdk_configuration.hooks.after_success(
+          @sdk_configuration.hooks.after_success(
             hook_ctx: SDKHooks::AfterSuccessHookContext.new(
               hook_ctx: hook_ctx
             ),
             response: http_response
           )
-          response_data = http_response.env.response_body
-          obj = Crystalline.unmarshal_json(JSON.parse(response_data), Models::Errors::PermissionsErrorResponse)
-          obj.raw_response = http_response
-          raise obj
+          return
         else
           raise(
             ::CldProvisioning::Models::Errors::APIError.new(

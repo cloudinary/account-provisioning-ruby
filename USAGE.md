@@ -17,7 +17,7 @@ req = Models::Operations::GetProductEnvironmentsRequest.new(
 )
 res = s.product_environments.list(request: req)
 
-unless res.product_environments_response.nil?
+unless res.nil?
   # handle response
 end
 

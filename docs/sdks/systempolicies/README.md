@@ -29,7 +29,7 @@ s = ::CldProvisioning::CldProvisioning.new(
 )
 res = s.system_policies.list(permission_type: Models::Shared::PermissionTypeEnum::GLOBAL, scope_type: Models::Shared::ScopeTypeEnum::PRODENV)
 
-unless res.system_policies_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -45,7 +45,7 @@ end
 
 ### Response
 
-**[T.nilable(Models::Operations::GetSystemPoliciesResponse)](../../models/operations/getsystempoliciesresponse.md)**
+**[T.nilable(Models::Shared::SystemPoliciesResponse)](../../models/operations/systempoliciesresponse.md)**
 
 ### Errors
 

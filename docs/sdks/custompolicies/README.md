@@ -40,7 +40,7 @@ req = Models::Operations::GetCustomPoliciesRequest.new(
 )
 res = s.custom_policies.list(request: req)
 
-unless res.custom_policies_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -54,7 +54,7 @@ end
 
 ### Response
 
-**[T.nilable(Models::Operations::GetCustomPoliciesResponse)](../../models/operations/getcustompoliciesresponse.md)**
+**[T.nilable(Models::Shared::CustomPoliciesResponse)](../../models/operations/custompoliciesresponse.md)**
 
 ### Errors
 
@@ -93,7 +93,7 @@ res = s.custom_policies.create(custom_policy: Models::Shared::CustomPolicy.new(
   name: 'Read access to Clothing folder'
 ))
 
-unless res.custom_policy_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -120,7 +120,7 @@ res = s.custom_policies.create(custom_policy: Models::Shared::CustomPolicy.new(
   name: 'Read access to Clothing folder'
 ))
 
-unless res.custom_policy_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -147,7 +147,7 @@ res = s.custom_policies.create(custom_policy: Models::Shared::CustomPolicy.new(
   name: 'Read access to Clothing folder'
 ))
 
-unless res.custom_policy_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -174,7 +174,7 @@ res = s.custom_policies.create(custom_policy: Models::Shared::CustomPolicy.new(
   name: 'Read access to Clothing folder'
 ))
 
-unless res.custom_policy_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -201,7 +201,7 @@ res = s.custom_policies.create(custom_policy: Models::Shared::CustomPolicy.new(
   name: 'Read access to Clothing folder'
 ))
 
-unless res.custom_policy_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -216,7 +216,7 @@ end
 
 ### Response
 
-**[T.nilable(Models::Operations::CreateCustomPolicyResponse)](../../models/operations/createcustompolicyresponse.md)**
+**[T.nilable(Models::Shared::CustomPolicyResponse)](../../models/operations/custompolicyresponse.md)**
 
 ### Errors
 
@@ -246,7 +246,7 @@ s = ::CldProvisioning::CldProvisioning.new(
 )
 res = s.custom_policies.get(policy_id: '<id>')
 
-unless res.custom_policy_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -261,7 +261,7 @@ end
 
 ### Response
 
-**[T.nilable(Models::Operations::GetCustomPolicyResponse)](../../models/operations/getcustompolicyresponse.md)**
+**[T.nilable(Models::Shared::CustomPolicyResponse)](../../models/operations/custompolicyresponse.md)**
 
 ### Errors
 
@@ -299,7 +299,7 @@ res = s.custom_policies.update(policy_id: '<id>', update_custom_policy: Models::
   name: 'Read access to Clothing folder'
 ))
 
-unless res.custom_policy_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -326,7 +326,7 @@ res = s.custom_policies.update(policy_id: '<id>', update_custom_policy: Models::
   name: 'Read access to Clothing folder'
 ))
 
-unless res.custom_policy_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -353,7 +353,7 @@ res = s.custom_policies.update(policy_id: '<id>', update_custom_policy: Models::
   name: 'Read access to Clothing folder'
 ))
 
-unless res.custom_policy_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -380,7 +380,7 @@ res = s.custom_policies.update(policy_id: '<id>', update_custom_policy: Models::
   name: 'Read access to Accessories folder'
 ))
 
-unless res.custom_policy_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -407,7 +407,7 @@ res = s.custom_policies.update(policy_id: '<id>', update_custom_policy: Models::
   name: 'Read access to Clothing folder'
 ))
 
-unless res.custom_policy_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -423,7 +423,7 @@ end
 
 ### Response
 
-**[T.nilable(Models::Operations::UpdateCustomPolicyResponse)](../../models/operations/updatecustompolicyresponse.md)**
+**[T.nilable(Models::Shared::CustomPolicyResponse)](../../models/operations/custompolicyresponse.md)**
 
 ### Errors
 
@@ -453,9 +453,6 @@ s = ::CldProvisioning::CldProvisioning.new(
 )
 res = s.custom_policies.delete(policy_id: '<id>')
 
-if res.status_code == 200
-  # handle response
-end
 
 ```
 
@@ -465,10 +462,6 @@ end
 | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
 | `policy_id`                                           | *::String*                                            | :heavy_check_mark:                                    | A unique identifier for the custom permission policy. |
 | `account_id`                                          | *T.nilable(::String)*                                 | :heavy_minus_sign:                                    | Account ID                                            |
-
-### Response
-
-**[T.nilable(Models::Operations::DeleteCustomPolicyResponse)](../../models/operations/deletecustompolicyresponse.md)**
 
 ### Errors
 

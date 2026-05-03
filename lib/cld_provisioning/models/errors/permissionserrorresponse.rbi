@@ -11,10 +11,4 @@ class CldProvisioning::Models::Errors::PermissionsErrorResponse
 
   def error=(str_)
   end
-
-  def raw_response
-  end
-
-  def raw_response=(str_)
-  end
 end

@@ -30,7 +30,7 @@ s = ::CldProvisioning::CldProvisioning.new(
 )
 res = s.public.get_catalog
 
-unless res.system_roles_and_policies_catalog_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -38,7 +38,7 @@ end
 
 ### Response
 
-**[T.nilable(Models::Operations::GetSystemRolesAndPoliciesCatalogResponse)](../../models/operations/getsystemrolesandpoliciescatalogresponse.md)**
+**[T.nilable(Models::Shared::SystemRolesAndPoliciesCatalogResponse)](../../models/operations/systemrolesandpoliciescatalogresponse.md)**
 
 ### Errors
 
@@ -69,7 +69,7 @@ req = Models::Shared::ValidateCedarPolicyRequest.new(
 )
 res = s.public.validate_policy(request: req)
 
-unless res.validate_cedar_policy_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -83,7 +83,7 @@ end
 
 ### Response
 
-**[T.nilable(Models::Operations::ValidateCedarPolicyResponse)](../../models/operations/validatecedarpolicyresponse.md)**
+**[T.nilable(Models::Shared::ValidateCedarPolicyResponse)](../../models/operations/validatecedarpolicyresponse.md)**
 
 ### Errors
 
@@ -110,7 +110,7 @@ s = ::CldProvisioning::CldProvisioning.new(
 )
 res = s.public.get_schema
 
-unless res.cedar_schema_response.nil?
+unless res.nil?
   # handle response
 end
 
@@ -118,7 +118,7 @@ end
 
 ### Response
 
-**[T.nilable(Models::Operations::GetCedarSchemaResponse)](../../models/operations/getcedarschemaresponse.md)**
+**[T.nilable(Models::Shared::CedarSchemaResponse)](../../models/operations/cedarschemaresponse.md)**
 
 ### Errors
 

@@ -26,8 +26,8 @@ Learn more about retrieving user groups.
 ```ruby
 require 'cloudinary_account_provisioning'
 
-Models = ::CloudinaryAccountProvisioning::Models
-s = ::CloudinaryAccountProvisioning::CldProvisioning.new(
+Models = ::CldProvisioning::Models
+s = ::CldProvisioning::CldProvisioning.new(
   account_id: '<id>',
   security: Models::Shared::Security.new(
     provisioning_api_key: 'CLOUDINARY_PROVISIONING_API_KEY',
@@ -47,8 +47,8 @@ end
 ```ruby
 require 'cloudinary_account_provisioning'
 
-Models = ::CloudinaryAccountProvisioning::Models
-s = ::CloudinaryAccountProvisioning::CldProvisioning.new(
+Models = ::CldProvisioning::Models
+s = ::CldProvisioning::CldProvisioning.new(
   account_id: '<id>',
   security: Models::Shared::Security.new(
     provisioning_api_key: 'CLOUDINARY_PROVISIONING_API_KEY',
@@ -94,8 +94,8 @@ Learn more about creating user groups.
 ```ruby
 require 'cloudinary_account_provisioning'
 
-Models = ::CloudinaryAccountProvisioning::Models
-s = ::CloudinaryAccountProvisioning::CldProvisioning.new(
+Models = ::CldProvisioning::Models
+s = ::CldProvisioning::CldProvisioning.new(
   account_id: '<id>',
   security: Models::Shared::Security.new(
     provisioning_api_key: 'CLOUDINARY_PROVISIONING_API_KEY',
@@ -144,8 +144,8 @@ Learn more about retrieving a specific user group.
 ```ruby
 require 'cloudinary_account_provisioning'
 
-Models = ::CloudinaryAccountProvisioning::Models
-s = ::CloudinaryAccountProvisioning::CldProvisioning.new(
+Models = ::CldProvisioning::Models
+s = ::CldProvisioning::CldProvisioning.new(
   account_id: '<id>',
   security: Models::Shared::Security.new(
     provisioning_api_key: 'CLOUDINARY_PROVISIONING_API_KEY',
@@ -165,8 +165,8 @@ end
 ```ruby
 require 'cloudinary_account_provisioning'
 
-Models = ::CloudinaryAccountProvisioning::Models
-s = ::CloudinaryAccountProvisioning::CldProvisioning.new(
+Models = ::CldProvisioning::Models
+s = ::CldProvisioning::CldProvisioning.new(
   account_id: '<id>',
   security: Models::Shared::Security.new(
     provisioning_api_key: 'CLOUDINARY_PROVISIONING_API_KEY',
@@ -213,8 +213,8 @@ Learn more about updating a specific user group.
 ```ruby
 require 'cloudinary_account_provisioning'
 
-Models = ::CloudinaryAccountProvisioning::Models
-s = ::CloudinaryAccountProvisioning::CldProvisioning.new(
+Models = ::CldProvisioning::Models
+s = ::CldProvisioning::CldProvisioning.new(
   account_id: '<id>',
   security: Models::Shared::Security.new(
     provisioning_api_key: 'CLOUDINARY_PROVISIONING_API_KEY',
@@ -236,8 +236,8 @@ end
 ```ruby
 require 'cloudinary_account_provisioning'
 
-Models = ::CloudinaryAccountProvisioning::Models
-s = ::CloudinaryAccountProvisioning::CldProvisioning.new(
+Models = ::CldProvisioning::Models
+s = ::CldProvisioning::CldProvisioning.new(
   account_id: '<id>',
   security: Models::Shared::Security.new(
     provisioning_api_key: 'CLOUDINARY_PROVISIONING_API_KEY',
@@ -287,8 +287,8 @@ Learn more about deleting a specific user group.
 ```ruby
 require 'cloudinary_account_provisioning'
 
-Models = ::CloudinaryAccountProvisioning::Models
-s = ::CloudinaryAccountProvisioning::CldProvisioning.new(
+Models = ::CldProvisioning::Models
+s = ::CldProvisioning::CldProvisioning.new(
   account_id: '<id>',
   security: Models::Shared::Security.new(
     provisioning_api_key: 'CLOUDINARY_PROVISIONING_API_KEY',
@@ -334,8 +334,8 @@ Learn more about retrieving users in a specific user group.
 ```ruby
 require 'cloudinary_account_provisioning'
 
-Models = ::CloudinaryAccountProvisioning::Models
-s = ::CloudinaryAccountProvisioning::CldProvisioning.new(
+Models = ::CldProvisioning::Models
+s = ::CldProvisioning::CldProvisioning.new(
   account_id: '<id>',
   security: Models::Shared::Security.new(
     provisioning_api_key: 'CLOUDINARY_PROVISIONING_API_KEY',
@@ -381,8 +381,8 @@ Learn more about adding users to a specific user group.
 ```ruby
 require 'cloudinary_account_provisioning'
 
-Models = ::CloudinaryAccountProvisioning::Models
-s = ::CloudinaryAccountProvisioning::CldProvisioning.new(
+Models = ::CldProvisioning::Models
+s = ::CldProvisioning::CldProvisioning.new(
   account_id: '<id>',
   security: Models::Shared::Security.new(
     provisioning_api_key: 'CLOUDINARY_PROVISIONING_API_KEY',
@@ -429,8 +429,8 @@ Learn more about removing users from a specific user group.
 ```ruby
 require 'cloudinary_account_provisioning'
 
-Models = ::CloudinaryAccountProvisioning::Models
-s = ::CloudinaryAccountProvisioning::CldProvisioning.new(
+Models = ::CldProvisioning::Models
+s = ::CldProvisioning::CldProvisioning.new(
   account_id: '<id>',
   security: Models::Shared::Security.new(
     provisioning_api_key: 'CLOUDINARY_PROVISIONING_API_KEY',

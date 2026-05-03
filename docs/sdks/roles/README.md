@@ -30,8 +30,8 @@ Retrieve all system and custom roles of a specific `permission_type` (global or 
 ```ruby
 require 'cloudinary_account_provisioning'
 
-Models = ::CloudinaryAccountProvisioning::Models
-s = ::CloudinaryAccountProvisioning::CldProvisioning.new(
+Models = ::CldProvisioning::Models
+s = ::CldProvisioning::CldProvisioning.new(
   account_id: '<id>',
   security: Models::Shared::Security.new(
     provisioning_api_key: 'CLOUDINARY_PROVISIONING_API_KEY',
@@ -80,8 +80,8 @@ Create a new custom role.
 ```ruby
 require 'cloudinary_account_provisioning'
 
-Models = ::CloudinaryAccountProvisioning::Models
-s = ::CloudinaryAccountProvisioning::CldProvisioning.new(
+Models = ::CldProvisioning::Models
+s = ::CldProvisioning::CldProvisioning.new(
   account_id: '<id>',
   security: Models::Shared::Security.new(
     provisioning_api_key: 'CLOUDINARY_PROVISIONING_API_KEY',
@@ -111,8 +111,8 @@ end
 ```ruby
 require 'cloudinary_account_provisioning'
 
-Models = ::CloudinaryAccountProvisioning::Models
-s = ::CloudinaryAccountProvisioning::CldProvisioning.new(
+Models = ::CldProvisioning::Models
+s = ::CldProvisioning::CldProvisioning.new(
   account_id: '<id>',
   security: Models::Shared::Security.new(
     provisioning_api_key: 'CLOUDINARY_PROVISIONING_API_KEY',
@@ -142,8 +142,8 @@ end
 ```ruby
 require 'cloudinary_account_provisioning'
 
-Models = ::CloudinaryAccountProvisioning::Models
-s = ::CloudinaryAccountProvisioning::CldProvisioning.new(
+Models = ::CldProvisioning::Models
+s = ::CldProvisioning::CldProvisioning.new(
   account_id: '<id>',
   security: Models::Shared::Security.new(
     provisioning_api_key: 'CLOUDINARY_PROVISIONING_API_KEY',
@@ -173,8 +173,8 @@ end
 ```ruby
 require 'cloudinary_account_provisioning'
 
-Models = ::CloudinaryAccountProvisioning::Models
-s = ::CloudinaryAccountProvisioning::CldProvisioning.new(
+Models = ::CldProvisioning::Models
+s = ::CldProvisioning::CldProvisioning.new(
   account_id: '<id>',
   security: Models::Shared::Security.new(
     provisioning_api_key: 'CLOUDINARY_PROVISIONING_API_KEY',
@@ -204,8 +204,8 @@ end
 ```ruby
 require 'cloudinary_account_provisioning'
 
-Models = ::CloudinaryAccountProvisioning::Models
-s = ::CloudinaryAccountProvisioning::CldProvisioning.new(
+Models = ::CldProvisioning::Models
+s = ::CldProvisioning::CldProvisioning.new(
   account_id: '<id>',
   security: Models::Shared::Security.new(
     provisioning_api_key: 'CLOUDINARY_PROVISIONING_API_KEY',
@@ -235,8 +235,8 @@ end
 ```ruby
 require 'cloudinary_account_provisioning'
 
-Models = ::CloudinaryAccountProvisioning::Models
-s = ::CloudinaryAccountProvisioning::CldProvisioning.new(
+Models = ::CldProvisioning::Models
+s = ::CldProvisioning::CldProvisioning.new(
   account_id: '<id>',
   security: Models::Shared::Security.new(
     provisioning_api_key: 'CLOUDINARY_PROVISIONING_API_KEY',
@@ -266,8 +266,8 @@ end
 ```ruby
 require 'cloudinary_account_provisioning'
 
-Models = ::CloudinaryAccountProvisioning::Models
-s = ::CloudinaryAccountProvisioning::CldProvisioning.new(
+Models = ::CldProvisioning::Models
+s = ::CldProvisioning::CldProvisioning.new(
   account_id: '<id>',
   security: Models::Shared::Security.new(
     provisioning_api_key: 'CLOUDINARY_PROVISIONING_API_KEY',
@@ -297,8 +297,8 @@ end
 ```ruby
 require 'cloudinary_account_provisioning'
 
-Models = ::CloudinaryAccountProvisioning::Models
-s = ::CloudinaryAccountProvisioning::CldProvisioning.new(
+Models = ::CldProvisioning::Models
+s = ::CldProvisioning::CldProvisioning.new(
   account_id: '<id>',
   security: Models::Shared::Security.new(
     provisioning_api_key: 'CLOUDINARY_PROVISIONING_API_KEY',
@@ -352,8 +352,8 @@ Get a specific system or custom role.
 ```ruby
 require 'cloudinary_account_provisioning'
 
-Models = ::CloudinaryAccountProvisioning::Models
-s = ::CloudinaryAccountProvisioning::CldProvisioning.new(
+Models = ::CldProvisioning::Models
+s = ::CldProvisioning::CldProvisioning.new(
   account_id: '<id>',
   security: Models::Shared::Security.new(
     provisioning_api_key: 'CLOUDINARY_PROVISIONING_API_KEY',
@@ -408,8 +408,8 @@ Update a specific custom role by providing all relevant details, including those
 ```ruby
 require 'cloudinary_account_provisioning'
 
-Models = ::CloudinaryAccountProvisioning::Models
-s = ::CloudinaryAccountProvisioning::CldProvisioning.new(
+Models = ::CldProvisioning::Models
+s = ::CldProvisioning::CldProvisioning.new(
   account_id: '<id>',
   security: Models::Shared::Security.new(
     provisioning_api_key: 'CLOUDINARY_PROVISIONING_API_KEY',
@@ -436,8 +436,8 @@ end
 ```ruby
 require 'cloudinary_account_provisioning'
 
-Models = ::CloudinaryAccountProvisioning::Models
-s = ::CloudinaryAccountProvisioning::CldProvisioning.new(
+Models = ::CldProvisioning::Models
+s = ::CldProvisioning::CldProvisioning.new(
   account_id: '<id>',
   security: Models::Shared::Security.new(
     provisioning_api_key: 'CLOUDINARY_PROVISIONING_API_KEY',
@@ -464,8 +464,8 @@ end
 ```ruby
 require 'cloudinary_account_provisioning'
 
-Models = ::CloudinaryAccountProvisioning::Models
-s = ::CloudinaryAccountProvisioning::CldProvisioning.new(
+Models = ::CldProvisioning::Models
+s = ::CldProvisioning::CldProvisioning.new(
   account_id: '<id>',
   security: Models::Shared::Security.new(
     provisioning_api_key: 'CLOUDINARY_PROVISIONING_API_KEY',
@@ -492,8 +492,8 @@ end
 ```ruby
 require 'cloudinary_account_provisioning'
 
-Models = ::CloudinaryAccountProvisioning::Models
-s = ::CloudinaryAccountProvisioning::CldProvisioning.new(
+Models = ::CldProvisioning::Models
+s = ::CldProvisioning::CldProvisioning.new(
   account_id: '<id>',
   security: Models::Shared::Security.new(
     provisioning_api_key: 'CLOUDINARY_PROVISIONING_API_KEY',
@@ -545,8 +545,8 @@ Delete a specific custom role.
 ```ruby
 require 'cloudinary_account_provisioning'
 
-Models = ::CloudinaryAccountProvisioning::Models
-s = ::CloudinaryAccountProvisioning::CldProvisioning.new(
+Models = ::CldProvisioning::Models
+s = ::CldProvisioning::CldProvisioning.new(
   account_id: '<id>',
   security: Models::Shared::Security.new(
     provisioning_api_key: 'CLOUDINARY_PROVISIONING_API_KEY',
@@ -590,8 +590,8 @@ Retrieve all principals associated with a specific role.
 ```ruby
 require 'cloudinary_account_provisioning'
 
-Models = ::CloudinaryAccountProvisioning::Models
-s = ::CloudinaryAccountProvisioning::CldProvisioning.new(
+Models = ::CldProvisioning::Models
+s = ::CldProvisioning::CldProvisioning.new(
   account_id: '<id>',
   security: Models::Shared::Security.new(
     provisioning_api_key: 'CLOUDINARY_PROVISIONING_API_KEY',
@@ -622,8 +622,8 @@ end
 ```ruby
 require 'cloudinary_account_provisioning'
 
-Models = ::CloudinaryAccountProvisioning::Models
-s = ::CloudinaryAccountProvisioning::CldProvisioning.new(
+Models = ::CldProvisioning::Models
+s = ::CldProvisioning::CldProvisioning.new(
   account_id: '<id>',
   security: Models::Shared::Security.new(
     provisioning_api_key: 'CLOUDINARY_PROVISIONING_API_KEY',
@@ -676,8 +676,8 @@ Add or remove principals associated with a role.
 ```ruby
 require 'cloudinary_account_provisioning'
 
-Models = ::CloudinaryAccountProvisioning::Models
-s = ::CloudinaryAccountProvisioning::CldProvisioning.new(
+Models = ::CldProvisioning::Models
+s = ::CldProvisioning::CldProvisioning.new(
   account_id: '<id>',
   security: Models::Shared::Security.new(
     provisioning_api_key: 'CLOUDINARY_PROVISIONING_API_KEY',
@@ -707,8 +707,8 @@ end
 ```ruby
 require 'cloudinary_account_provisioning'
 
-Models = ::CloudinaryAccountProvisioning::Models
-s = ::CloudinaryAccountProvisioning::CldProvisioning.new(
+Models = ::CldProvisioning::Models
+s = ::CldProvisioning::CldProvisioning.new(
   account_id: '<id>',
   security: Models::Shared::Security.new(
     provisioning_api_key: 'CLOUDINARY_PROVISIONING_API_KEY',

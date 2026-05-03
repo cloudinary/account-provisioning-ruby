@@ -21,8 +21,8 @@ Retrieves the catalog of predefined system roles and their associated policies.
 ```ruby
 require 'cloudinary_account_provisioning'
 
-Models = ::CloudinaryAccountProvisioning::Models
-s = ::CloudinaryAccountProvisioning::CldProvisioning.new(
+Models = ::CldProvisioning::Models
+s = ::CldProvisioning::CldProvisioning.new(
   security: Models::Shared::Security.new(
     provisioning_api_key: 'CLOUDINARY_PROVISIONING_API_KEY',
     provisioning_api_secret: 'CLOUDINARY_PROVISIONING_API_SECRET'
@@ -56,8 +56,8 @@ Validate a Cedar policy
 ```ruby
 require 'cloudinary_account_provisioning'
 
-Models = ::CloudinaryAccountProvisioning::Models
-s = ::CloudinaryAccountProvisioning::CldProvisioning.new(
+Models = ::CldProvisioning::Models
+s = ::CldProvisioning::CldProvisioning.new(
   security: Models::Shared::Security.new(
     provisioning_api_key: 'CLOUDINARY_PROVISIONING_API_KEY',
     provisioning_api_secret: 'CLOUDINARY_PROVISIONING_API_SECRET'
@@ -101,8 +101,8 @@ Get Cedar schema
 ```ruby
 require 'cloudinary_account_provisioning'
 
-Models = ::CloudinaryAccountProvisioning::Models
-s = ::CloudinaryAccountProvisioning::CldProvisioning.new(
+Models = ::CldProvisioning::Models
+s = ::CldProvisioning::CldProvisioning.new(
   security: Models::Shared::Security.new(
     provisioning_api_key: 'CLOUDINARY_PROVISIONING_API_KEY',
     provisioning_api_secret: 'CLOUDINARY_PROVISIONING_API_SECRET'

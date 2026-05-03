@@ -2,8 +2,8 @@
 ```ruby
 require "cloudinary_account_provisioning"
 
-Models = ::CloudinaryAccountProvisioning::Models
-s = ::CloudinaryAccountProvisioning::CldProvisioning.new(
+Models = ::CldProvisioning::Models
+s = ::CldProvisioning::CldProvisioning.new(
   account_id: "<id>",
   security: Models::Shared::Security.new(
     provisioning_api_key: "CLOUDINARY_PROVISIONING_API_KEY",

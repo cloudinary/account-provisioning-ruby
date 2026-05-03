@@ -26,8 +26,8 @@ Retrieve all custom permission policies defined for a specific scope. The scope 
 ```ruby
 require 'cloudinary_account_provisioning'
 
-Models = ::CloudinaryAccountProvisioning::Models
-s = ::CloudinaryAccountProvisioning::CldProvisioning.new(
+Models = ::CldProvisioning::Models
+s = ::CldProvisioning::CldProvisioning.new(
   account_id: '<id>',
   security: Models::Shared::Security.new(
     provisioning_api_key: 'CLOUDINARY_PROVISIONING_API_KEY',
@@ -77,8 +77,8 @@ Learn more about creating a new custom policy
 ```ruby
 require 'cloudinary_account_provisioning'
 
-Models = ::CloudinaryAccountProvisioning::Models
-s = ::CloudinaryAccountProvisioning::CldProvisioning.new(
+Models = ::CldProvisioning::Models
+s = ::CldProvisioning::CldProvisioning.new(
   account_id: '<id>',
   security: Models::Shared::Security.new(
     provisioning_api_key: 'CLOUDINARY_PROVISIONING_API_KEY',
@@ -104,8 +104,8 @@ end
 ```ruby
 require 'cloudinary_account_provisioning'
 
-Models = ::CloudinaryAccountProvisioning::Models
-s = ::CloudinaryAccountProvisioning::CldProvisioning.new(
+Models = ::CldProvisioning::Models
+s = ::CldProvisioning::CldProvisioning.new(
   account_id: '<id>',
   security: Models::Shared::Security.new(
     provisioning_api_key: 'CLOUDINARY_PROVISIONING_API_KEY',
@@ -131,8 +131,8 @@ end
 ```ruby
 require 'cloudinary_account_provisioning'
 
-Models = ::CloudinaryAccountProvisioning::Models
-s = ::CloudinaryAccountProvisioning::CldProvisioning.new(
+Models = ::CldProvisioning::Models
+s = ::CldProvisioning::CldProvisioning.new(
   account_id: '<id>',
   security: Models::Shared::Security.new(
     provisioning_api_key: 'CLOUDINARY_PROVISIONING_API_KEY',
@@ -158,8 +158,8 @@ end
 ```ruby
 require 'cloudinary_account_provisioning'
 
-Models = ::CloudinaryAccountProvisioning::Models
-s = ::CloudinaryAccountProvisioning::CldProvisioning.new(
+Models = ::CldProvisioning::Models
+s = ::CldProvisioning::CldProvisioning.new(
   account_id: '<id>',
   security: Models::Shared::Security.new(
     provisioning_api_key: 'CLOUDINARY_PROVISIONING_API_KEY',
@@ -185,8 +185,8 @@ end
 ```ruby
 require 'cloudinary_account_provisioning'
 
-Models = ::CloudinaryAccountProvisioning::Models
-s = ::CloudinaryAccountProvisioning::CldProvisioning.new(
+Models = ::CldProvisioning::Models
+s = ::CldProvisioning::CldProvisioning.new(
   account_id: '<id>',
   security: Models::Shared::Security.new(
     provisioning_api_key: 'CLOUDINARY_PROVISIONING_API_KEY',
@@ -236,8 +236,8 @@ Get a specific custom policy.
 ```ruby
 require 'cloudinary_account_provisioning'
 
-Models = ::CloudinaryAccountProvisioning::Models
-s = ::CloudinaryAccountProvisioning::CldProvisioning.new(
+Models = ::CldProvisioning::Models
+s = ::CldProvisioning::CldProvisioning.new(
   account_id: '<id>',
   security: Models::Shared::Security.new(
     provisioning_api_key: 'CLOUDINARY_PROVISIONING_API_KEY',
@@ -283,8 +283,8 @@ Update a specific custom policy by providing the entire policy entity in the req
 ```ruby
 require 'cloudinary_account_provisioning'
 
-Models = ::CloudinaryAccountProvisioning::Models
-s = ::CloudinaryAccountProvisioning::CldProvisioning.new(
+Models = ::CldProvisioning::Models
+s = ::CldProvisioning::CldProvisioning.new(
   account_id: '<id>',
   security: Models::Shared::Security.new(
     provisioning_api_key: 'CLOUDINARY_PROVISIONING_API_KEY',
@@ -310,8 +310,8 @@ end
 ```ruby
 require 'cloudinary_account_provisioning'
 
-Models = ::CloudinaryAccountProvisioning::Models
-s = ::CloudinaryAccountProvisioning::CldProvisioning.new(
+Models = ::CldProvisioning::Models
+s = ::CldProvisioning::CldProvisioning.new(
   account_id: '<id>',
   security: Models::Shared::Security.new(
     provisioning_api_key: 'CLOUDINARY_PROVISIONING_API_KEY',
@@ -337,8 +337,8 @@ end
 ```ruby
 require 'cloudinary_account_provisioning'
 
-Models = ::CloudinaryAccountProvisioning::Models
-s = ::CloudinaryAccountProvisioning::CldProvisioning.new(
+Models = ::CldProvisioning::Models
+s = ::CldProvisioning::CldProvisioning.new(
   account_id: '<id>',
   security: Models::Shared::Security.new(
     provisioning_api_key: 'CLOUDINARY_PROVISIONING_API_KEY',
@@ -364,8 +364,8 @@ end
 ```ruby
 require 'cloudinary_account_provisioning'
 
-Models = ::CloudinaryAccountProvisioning::Models
-s = ::CloudinaryAccountProvisioning::CldProvisioning.new(
+Models = ::CldProvisioning::Models
+s = ::CldProvisioning::CldProvisioning.new(
   account_id: '<id>',
   security: Models::Shared::Security.new(
     provisioning_api_key: 'CLOUDINARY_PROVISIONING_API_KEY',
@@ -391,8 +391,8 @@ end
 ```ruby
 require 'cloudinary_account_provisioning'
 
-Models = ::CloudinaryAccountProvisioning::Models
-s = ::CloudinaryAccountProvisioning::CldProvisioning.new(
+Models = ::CldProvisioning::Models
+s = ::CldProvisioning::CldProvisioning.new(
   account_id: '<id>',
   security: Models::Shared::Security.new(
     provisioning_api_key: 'CLOUDINARY_PROVISIONING_API_KEY',
@@ -443,8 +443,8 @@ Delete a specific custom policy.
 ```ruby
 require 'cloudinary_account_provisioning'
 
-Models = ::CloudinaryAccountProvisioning::Models
-s = ::CloudinaryAccountProvisioning::CldProvisioning.new(
+Models = ::CldProvisioning::Models
+s = ::CldProvisioning::CldProvisioning.new(
   account_id: '<id>',
   security: Models::Shared::Security.new(
     provisioning_api_key: 'CLOUDINARY_PROVISIONING_API_KEY',

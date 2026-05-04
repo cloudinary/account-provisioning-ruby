@@ -1,0 +1,9 @@
+# UpdateRolePrincipalsRequest
+
+
+## Fields
+
+| Field                                                                                       | Type                                                                                        | Required                                                                                    | Description                                                                                 | Example                                                                                     |
+| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `operation`                                                                                 | [T.nilable(Models::Shared::OperationEnum)](../../models/shared/operationenum.md)            | :heavy_minus_sign:                                                                          | Specifies the operation to perform. Use `add` to associate or `remove` to disassociate.     | add                                                                                         |
+| `principals`                                                                                | T::Array<[Models::Shared::UpdateRolePrincipal](../../models/shared/updateroleprincipal.md)> | :heavy_minus_sign:                                                                          | N/A                                                                                         |                                                                                             |

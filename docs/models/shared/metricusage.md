@@ -1,0 +1,11 @@
+# MetricUsage
+
+
+## Fields
+
+| Field                                                                           | Type                                                                            | Required                                                                        | Description                                                                     |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `metric`                                                                        | *T.nilable(::String)*                                                           | :heavy_minus_sign:                                                              | The type of metric being measured (e.g., "credit").                             |
+| `limit`                                                                         | *T.nilable(::Float)*                                                            | :heavy_minus_sign:                                                              | The limit for this metric in the plan.                                          |
+| `cycles`                                                                        | T::Array<[Models::Shared::Cycles](../../models/shared/cycles.md)>               | :heavy_minus_sign:                                                              | Full usage details per billing cycle (monthly or annual, depending on plan).    |
+| `monthly_cycles`                                                                | T::Array<[Models::Shared::MonthlyCycles](../../models/shared/monthlycycles.md)> | :heavy_minus_sign:                                                              | Monthly-level breakdown within a single annual cycle.                           |

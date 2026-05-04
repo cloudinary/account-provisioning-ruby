@@ -1,0 +1,76 @@
+configVersion: 2.0.0
+generation:
+  devContainers:
+    enabled: true
+    schemaPath: https://cloudinary.github.io/api-schemas/provisioning/schema.yml
+  sdkClassName: CldProvisioning
+  maintainOpenAPIOrder: true
+  usageSnippets:
+    optionalPropertyRendering: withExample
+    sdkInitStyle: constructor
+    usageSDKInit: CldProvisioning.new
+    usageSDKInitImports: []
+  useClassNamesForArrayFields: true
+  fixes:
+    nameResolutionDec2023: true
+    nameResolutionFeb2025: false
+    parameterOrderingFeb2024: true
+    requestResponseComponentNamesFeb2024: true
+    securityFeb2025: true
+    sharedErrorComponentsApr2025: true
+    sharedNestedComponentsJan2026: true
+    nameOverrideFeb2026: true
+  auth:
+    oAuth2ClientCredentialsEnabled: true
+    oAuth2PasswordEnabled: true
+    hoistGlobalSecurity: true
+  inferSSEOverload: true
+  sdkHooksConfigAccess: true
+  schemas:
+    allOfMergeStrategy: shallowMerge
+  requestBodyFieldName: ""
+  versioningStrategy: automatic
+  persistentEdits:
+    enabled: "true"
+  tests:
+    generateTests: false
+    generateNewTests: true
+    skipResponseBodyAssertions: false
+ruby:
+  version: 0.1.0
+  additionalDependencies:
+    development: {}
+    runtime: {}
+  author: Cloudinary
+  baseErrorName: CloudinaryError
+  clientServerStatusCodesAsErrors: true
+  constFieldsAlwaysOptional: false
+  defaultErrorName: APIError
+  description: Cloudinary Account Provisioning API Ruby SDK.
+  enableFormatting: true
+  envVarPrefix: CLOUDINARY
+  flattenGlobalSecurity: true
+  flatteningOrder: parameters-first
+  forwardCompatibleEnumsByDefault: true
+  forwardCompatibleUnionsByDefault: tagged-only
+  imports:
+    option: openapi
+    paths:
+      callbacks: models/callbacks
+      errors: models/errors
+      operations: models/operations
+      shared: models/shared
+      webhooks: models/webhooks
+  inferUnionDiscriminators: true
+  inputModelSuffix: input
+  license: MIT
+  maxMethodParams: 4
+  methodArguments: infer-optional-args
+  module: CldProvisioning
+  multipartArrayFormat: standard
+  outputModelSuffix: output
+  packageName: cloudinary-account-provisioning
+  responseFormat: flat
+  templateVersion: v2
+  typingStrategy: sorbet
+  unionStrategy: populated-fields

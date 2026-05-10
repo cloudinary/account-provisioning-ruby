@@ -4,12 +4,18 @@ $LOAD_PATH.push File.expand_path('lib', __dir__)
 
 Gem::Specification.new do |s|
   s.name        = 'cloudinary-account-provisioning'
-  s.version     = '0.1.0'
+  s.version     = '0.1.1'
   s.platform    = Gem::Platform::RUBY
   s.licenses    = ['Apache-2.0']
   s.summary     = ''
+  s.homepage    = 'https://github.com/cloudinary/account-provisioning-ruby.git'
   s.description = 'Cloudinary Account Provisioning API Ruby SDK.'
   s.authors     = ['Cloudinary']
+  s.metadata    = {
+    'homepage_uri' => 'https://github.com/cloudinary/account-provisioning-ruby.git',
+    'documentation_uri' => 'https://github.com/cloudinary/account-provisioning-ruby.git',
+    'source_code_uri' => 'https://github.com/cloudinary/account-provisioning-ruby.git'
+  }
 
   s.files         = Dir['{lib,test}/**/*'].reject { |f| f.start_with?('test/mockserver') }
   s.require_paths = ['lib']

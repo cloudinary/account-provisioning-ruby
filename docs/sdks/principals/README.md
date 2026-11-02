@@ -133,7 +133,9 @@ res = s.principals.update_roles(update_principal_roles_request: Models::Shared::
     Models::Shared::RoleToManage.new(
       id: 'marketing_content_contributor_1357fhe',
       scope_id: '975l29lz02jt0836fhwi',
-      policy_parameters: Models::Shared::RoleToManagePolicyParameters.new
+      policy_parameters: {
+
+      }
     ),
   ]
 ))
@@ -164,7 +166,9 @@ res = s.principals.update_roles(update_principal_roles_request: Models::Shared::
     Models::Shared::RoleToManage.new(
       id: 'marketing_content_contributor_1357fhe',
       scope_id: '975l29lz02jt0836fhwi',
-      policy_parameters: Models::Shared::RoleToManagePolicyParameters.new
+      policy_parameters: {
+
+      }
     ),
   ]
 ))
@@ -367,7 +371,9 @@ res = s.principals.inspect_multiple(inspect_request: Models::Shared::InspectRequ
       id: 'a382ltieo893jhioqpg8urp'
     ),
   ],
-  policy_parameters: Models::Shared::InspectRequestPolicyParameters.new
+  policy_parameters: {
+    'folder_id' => 'asdfjkl12347890',
+  }
 ))
 
 unless res.nil?

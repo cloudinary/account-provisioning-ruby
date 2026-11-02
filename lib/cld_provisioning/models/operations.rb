@@ -67,6 +67,8 @@ module CldProvisioning
       autoload :UpdateRoleRequest, "cld_provisioning/models/operations/updaterole_request.rb"
       autoload :UpdateUserGroupRequest, "cld_provisioning/models/operations/updateusergroup_request.rb"
       autoload :UpdateUserRequest, "cld_provisioning/models/operations/updateuser_request.rb"
+      autoload :UpdateUserRequestBody, "cld_provisioning/models/operations/updateuser_requestbody.rb"
+      autoload :UpdateUserRole, "cld_provisioning/models/operations/updateuser_role.rb"
     end
   end
 end

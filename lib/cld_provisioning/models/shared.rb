@@ -17,26 +17,21 @@ module CldProvisioning
       autoload :CedarError, "cld_provisioning/models/shared/cedarerror.rb"
       autoload :CedarSchemaResponse, "cld_provisioning/models/shared/cedarschemaresponse.rb"
       autoload :CloudAssetTypeBreakdown, "cld_provisioning/models/shared/cloudassettypebreakdown.rb"
+      autoload :CreateCustomPolicy, "cld_provisioning/models/shared/createcustompolicy.rb"
       autoload :CreateRole, "cld_provisioning/models/shared/createrole.rb"
       autoload :CustomPoliciesResponse, "cld_provisioning/models/shared/custompoliciesresponse.rb"
-      autoload :CustomPolicy, "cld_provisioning/models/shared/custompolicy.rb"
       autoload :CustomPolicyResponse, "cld_provisioning/models/shared/custompolicyresponse.rb"
       autoload :CustomPolicyResponseData, "cld_provisioning/models/shared/custompolicyresponsedata.rb"
       autoload :EffectivePoliciesResponse, "cld_provisioning/models/shared/effectivepoliciesresponse.rb"
       autoload :EffectivePolicy, "cld_provisioning/models/shared/effectivepolicy.rb"
       autoload :EffectiveRole, "cld_provisioning/models/shared/effectiverole.rb"
       autoload :InspectRequest, "cld_provisioning/models/shared/inspectrequest.rb"
-      autoload :InspectRequestPolicyParameters, "cld_provisioning/models/shared/inspectrequest_policy_parameters.rb"
       autoload :ManagementTypeEnum, "cld_provisioning/models/shared/managementtypeenum.rb"
       autoload :OperationEnum, "cld_provisioning/models/shared/operationenum.rb"
       autoload :PermissionTypeEnum, "cld_provisioning/models/shared/permissiontypeenum.rb"
       autoload :PermissionsError, "cld_provisioning/models/shared/permissionserror.rb"
       autoload :Principal, "cld_provisioning/models/shared/principal.rb"
       autoload :PrincipalResponseData, "cld_provisioning/models/shared/principalresponsedata.rb"
-      autoload(
-        :PrincipalResponseDataPolicyParameters,
-        "cld_provisioning/models/shared/principalresponsedata_policy_parameters.rb"
-      )
       autoload :PrincipalRole, "cld_provisioning/models/shared/principalrole.rb"
       autoload :PrincipalRolesData, "cld_provisioning/models/shared/principalrolesdata.rb"
       autoload :PrincipalRolesInspectData, "cld_provisioning/models/shared/principalrolesinspectdata.rb"
@@ -56,12 +51,12 @@ module CldProvisioning
         "cld_provisioning/models/shared/productenvironmentupdaterequest_custom_attributes.rb"
       )
       autoload :ProductEnvironmentsResponse, "cld_provisioning/models/shared/productenvironmentsresponse.rb"
-      autoload :Role, "cld_provisioning/models/shared/role.rb"
+      autoload :RoleAssignment, "cld_provisioning/models/shared/roleassignment.rb"
+      autoload :RoleManagementRequest, "cld_provisioning/models/shared/rolemanagementrequest.rb"
       autoload :RoleResponse, "cld_provisioning/models/shared/roleresponse.rb"
       autoload :RoleResponseData, "cld_provisioning/models/shared/roleresponsedata.rb"
       autoload :RoleResponseData1, "cld_provisioning/models/shared/roleresponse_data1.rb"
       autoload :RoleToManage, "cld_provisioning/models/shared/roletomanage.rb"
-      autoload :RoleToManagePolicyParameters, "cld_provisioning/models/shared/roletomanage_policy_parameters.rb"
       autoload :RolesResponse, "cld_provisioning/models/shared/rolesresponse.rb"
       autoload :ScopeTypeEnum, "cld_provisioning/models/shared/scopetypeenum.rb"
       autoload :Security, "cld_provisioning/models/shared/security.rb"
@@ -75,11 +70,8 @@ module CldProvisioning
       )
       autoload :UpdateCustomPolicy, "cld_provisioning/models/shared/updatecustompolicy.rb"
       autoload :UpdatePrincipalRolesRequest, "cld_provisioning/models/shared/updateprincipalrolesrequest.rb"
+      autoload :UpdateRole, "cld_provisioning/models/shared/updaterole.rb"
       autoload :UpdateRolePrincipal, "cld_provisioning/models/shared/updateroleprincipal.rb"
-      autoload(
-        :UpdateRolePrincipalPolicyParameters,
-        "cld_provisioning/models/shared/updateroleprincipal_policy_parameters.rb"
-      )
       autoload :UpdateRolePrincipalsRequest, "cld_provisioning/models/shared/updateroleprincipalsrequest.rb"
       autoload :User, "cld_provisioning/models/shared/user.rb"
       autoload :UserGroup, "cld_provisioning/models/shared/usergroup.rb"
@@ -89,8 +81,6 @@ module CldProvisioning
       autoload :UserGroupUsersResponse, "cld_provisioning/models/shared/usergroupusersresponse.rb"
       autoload :UserGroupsListResponse, "cld_provisioning/models/shared/usergroupslistresponse.rb"
       autoload :UserGroupsResponse, "cld_provisioning/models/shared/usergroupsresponse.rb"
-      autoload :UserRequest, "cld_provisioning/models/shared/userrequest.rb"
-      autoload :UserRequestRole, "cld_provisioning/models/shared/userrequest_role.rb"
       autoload :UserSubAccountsResponse, "cld_provisioning/models/shared/usersubaccountsresponse.rb"
       autoload :UsersResponse, "cld_provisioning/models/shared/usersresponse.rb"
       autoload :ValidateCedarPolicyRequest, "cld_provisioning/models/shared/validatecedarpolicyrequest.rb"
@@ -100,11 +90,11 @@ module CldProvisioning
       autoload :Cycles, "cld_provisioning/models/shared/cycles.rb"
       autoload :Data, "cld_provisioning/models/shared/data.rb"
       autoload :DedicatedFor, "cld_provisioning/models/shared/dedicated_for.rb"
-      autoload :Details, "cld_provisioning/models/shared/details.rb"
       autoload :EmailPreferences, "cld_provisioning/models/shared/email_preferences.rb"
       autoload :Error, "cld_provisioning/models/shared/error.rb"
       autoload :MetricUsage, "cld_provisioning/models/shared/metric_usage.rb"
       autoload :MonthlyCycles, "cld_provisioning/models/shared/monthly_cycles.rb"
+      autoload :Operation, "cld_provisioning/models/shared/operation.rb"
       autoload :PolicyParameters, "cld_provisioning/models/shared/policy_parameters.rb"
     end
   end

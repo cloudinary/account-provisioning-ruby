@@ -1,11 +1,11 @@
 # typed: true
 # frozen_string_literal: true
 
-class CldProvisioning::Models::Shared::UserRequest
+class CldProvisioning::Models::Operations::UpdateUserRequestBody
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
-class CldProvisioning::Models::Shared::UserRequest
+class CldProvisioning::Models::Operations::UpdateUserRequestBody
   def name
   end
 
@@ -34,5 +34,11 @@ class CldProvisioning::Models::Shared::UserRequest
   end
 
   def enabled=(str_)
+  end
+
+  def role_management
+  end
+
+  def role_management=(str_)
   end
 end

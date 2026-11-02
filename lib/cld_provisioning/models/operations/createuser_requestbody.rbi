@@ -35,4 +35,10 @@ class CldProvisioning::Models::Operations::CreateUserRequestBody
 
   def enabled=(str_)
   end
+
+  def roles
+  end
+
+  def roles=(str_)
+  end
 end

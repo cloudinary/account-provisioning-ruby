@@ -39,7 +39,7 @@ module CldProvisioning
 
         field(
           :policy_parameters,
-          Crystalline::Nilable.new(Models::Shared::InspectRequestPolicyParameters),
+          Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)),
           {'format_json': {'letter_case': ::CldProvisioning::Utils.field_name("policy_parameters")}}
         )
 
@@ -54,7 +54,7 @@ module CldProvisioning
             scope_type: Models::Shared::ScopeTypeEnum,
             principals: T::Array[Models::Shared::Principal],
             scope_id: T.nilable(::String),
-            policy_parameters: T.nilable(Models::Shared::InspectRequestPolicyParameters),
+            policy_parameters: T.nilable(T::Hash[Symbol, ::Object]),
             cursor: T.nilable(::String)
           )
             .void

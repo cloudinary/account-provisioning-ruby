@@ -1,11 +1,11 @@
 # typed: true
 # frozen_string_literal: true
 
-class CldProvisioning::Models::Shared::Role
+class CldProvisioning::Models::Shared::UpdateRole
   extend ::Crystalline::MetadataFields::ClassMethods
 end
 
-class CldProvisioning::Models::Shared::Role
+class CldProvisioning::Models::Shared::UpdateRole
   def name
   end
 

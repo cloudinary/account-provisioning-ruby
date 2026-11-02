@@ -85,7 +85,7 @@ s = ::CldProvisioning::CldProvisioning.new(
     provisioning_api_secret: 'CLOUDINARY_PROVISIONING_API_SECRET'
   )
 )
-res = s.custom_policies.create(custom_policy: Models::Shared::CustomPolicy.new(
+res = s.custom_policies.create(create_custom_policy: Models::Shared::CreateCustomPolicy.new(
   policy_statement: "permit(principal == Cloudinary::APIKey::\\\"1234\\\",action==Cloudinary::Action::\\\"read\\\",resource is Cloudinary::Folder ) when {resource.ancestor_ids.contains(\\\"asdfjkl12347890\\\")} ;\n",
   description: 'Permit read access to the Clothing folder with external ID asdfjkl12347890.',
   scope_type: Models::Shared::ScopeTypeEnum::PRODENV,
@@ -112,7 +112,7 @@ s = ::CldProvisioning::CldProvisioning.new(
     provisioning_api_secret: 'CLOUDINARY_PROVISIONING_API_SECRET'
   )
 )
-res = s.custom_policies.create(custom_policy: Models::Shared::CustomPolicy.new(
+res = s.custom_policies.create(create_custom_policy: Models::Shared::CreateCustomPolicy.new(
   policy_statement: 'permit(principal == Cloudinary::APIKey::"1234",action==Cloudinary::Action::"read",resource is Cloudinary::Folder ) when {resource.ancestor_ids.contains("asdfjkl12347890")} ;',
   description: 'Permit read access to the Clothing folder with external ID asdfjkl12347890.',
   scope_type: Models::Shared::ScopeTypeEnum::PRODENV,
@@ -139,7 +139,7 @@ s = ::CldProvisioning::CldProvisioning.new(
     provisioning_api_secret: 'CLOUDINARY_PROVISIONING_API_SECRET'
   )
 )
-res = s.custom_policies.create(custom_policy: Models::Shared::CustomPolicy.new(
+res = s.custom_policies.create(create_custom_policy: Models::Shared::CreateCustomPolicy.new(
   policy_statement: "permit(principal == Cloudinary::APIKey::\\\"1234\\\",action==Cloudinary::Action::\\\"read\\\",resource is Cloudinary::Folder ) when {resource.ancestor_ids.contains(\\\"asdfjkl12347890\\\")} ;\n",
   description: 'Permit read access to the Clothing folder with external ID asdfjkl12347890.',
   scope_type: Models::Shared::ScopeTypeEnum::PRODENV,
@@ -166,7 +166,7 @@ s = ::CldProvisioning::CldProvisioning.new(
     provisioning_api_secret: 'CLOUDINARY_PROVISIONING_API_SECRET'
   )
 )
-res = s.custom_policies.create(custom_policy: Models::Shared::CustomPolicy.new(
+res = s.custom_policies.create(create_custom_policy: Models::Shared::CreateCustomPolicy.new(
   policy_statement: "permit(principal == Cloudinary::APIKey::\\\"1234\\\",action==Cloudinary::Action::\\\"read\\\",resource is Cloudinary::Folder ) when {resource.ancestor_ids.contains(\\\"asdfjkl12347890\\\")} ;\n",
   description: 'Permit read access to the Clothing folder with external ID asdfjkl12347890.',
   scope_type: Models::Shared::ScopeTypeEnum::PRODENV,
@@ -193,7 +193,7 @@ s = ::CldProvisioning::CldProvisioning.new(
     provisioning_api_secret: 'CLOUDINARY_PROVISIONING_API_SECRET'
   )
 )
-res = s.custom_policies.create(custom_policy: Models::Shared::CustomPolicy.new(
+res = s.custom_policies.create(create_custom_policy: Models::Shared::CreateCustomPolicy.new(
   policy_statement: "permit(principal == Cloudinary::APIKey::\\\"1234\\\",action==Cloudinary::Action::\\\"read\\\",resource is Cloudinary::Folder ) when {resource.ancestor_ids.contains(\\\"asdfjkl12347890\\\")} ;\n",
   description: 'Permit read access to the Clothing folder with external ID asdfjkl12347890.',
   scope_type: Models::Shared::ScopeTypeEnum::PRODENV,
@@ -209,10 +209,10 @@ end
 
 ### Parameters
 
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `custom_policy`                                                     | [Models::Shared::CustomPolicy](../../models/shared/custompolicy.md) | :heavy_check_mark:                                                  | Policy details.                                                     |
-| `account_id`                                                        | *T.nilable(::String)*                                               | :heavy_minus_sign:                                                  | Account ID                                                          |
+| Parameter                                                                       | Type                                                                            | Required                                                                        | Description                                                                     |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `create_custom_policy`                                                          | [Models::Shared::CreateCustomPolicy](../../models/shared/createcustompolicy.md) | :heavy_check_mark:                                                              | Policy details.                                                                 |
+| `account_id`                                                                    | *T.nilable(::String)*                                                           | :heavy_minus_sign:                                                              | Account ID                                                                      |
 
 ### Response
 

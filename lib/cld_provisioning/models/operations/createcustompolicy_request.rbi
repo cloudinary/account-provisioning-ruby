@@ -6,10 +6,10 @@ class CldProvisioning::Models::Operations::CreateCustomPolicyRequest
 end
 
 class CldProvisioning::Models::Operations::CreateCustomPolicyRequest
-  def custom_policy
+  def create_custom_policy
   end
 
-  def custom_policy=(str_)
+  def create_custom_policy=(str_)
   end
 
   def account_id

@@ -86,7 +86,7 @@ module CldProvisioning
         #
         field(
           :policy_parameters,
-          Crystalline::Nilable.new(Models::Shared::PolicyParameters),
+          Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)),
           {'format_json': {'letter_case': ::CldProvisioning::Utils.field_name("policy_parameters")}}
         )
 
@@ -101,7 +101,7 @@ module CldProvisioning
             updated_at: ::Integer,
             description: T.nilable(::String),
             scope_id: T.nilable(::String),
-            policy_parameters: T.nilable(Models::Shared::PolicyParameters)
+            policy_parameters: T.nilable(T::Hash[Symbol, ::Object])
           )
             .void
         }

@@ -12,10 +12,10 @@ class CldProvisioning::Models::Operations::UpdateRoleRequest
   def role_id=(str_)
   end
 
-  def role
+  def update_role
   end
 
-  def role=(str_)
+  def update_role=(str_)
   end
 
   def account_id

@@ -35,7 +35,7 @@ module CldProvisioning
 
         field(
           :policy_parameters,
-          Crystalline::Nilable.new(Models::Shared::PrincipalResponseDataPolicyParameters),
+          Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)),
           {'format_json': {'letter_case': ::CldProvisioning::Utils.field_name("policy_parameters")}}
         )
         # Specifies where the role/policy is applied, either at the account level or within product environments.
@@ -73,7 +73,7 @@ module CldProvisioning
             id: ::String,
             type: Models::Shared::PrincipalTypeEnum,
             role_id: T.nilable(::String),
-            policy_parameters: T.nilable(Models::Shared::PrincipalResponseDataPolicyParameters),
+            policy_parameters: T.nilable(T::Hash[Symbol, ::Object]),
             scope_type: T.nilable(Models::Shared::ScopeTypeEnum),
             created_at: T.nilable(::Integer),
             updated_at: T.nilable(::Integer),

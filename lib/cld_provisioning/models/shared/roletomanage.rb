@@ -23,16 +23,12 @@ module CldProvisioning
         # Defines the content instance that the role applies to. Specify the content type (`folder_id` or `collection_id`) and its corresponding ID. For example, `{"folder_id":"asdfjkl12347890"}`. This specification is passed to the `policy_statement` (Cedar).
         field(
           :policy_parameters,
-          Crystalline::Nilable.new(Models::Shared::RoleToManagePolicyParameters),
+          Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)),
           {'format_json': {'letter_case': ::CldProvisioning::Utils.field_name("policy_parameters")}}
         )
 
         sig {
-          params(
-            id: ::String,
-            scope_id: T.nilable(::String),
-            policy_parameters: T.nilable(Models::Shared::RoleToManagePolicyParameters)
-          )
+          params(id: ::String, scope_id: T.nilable(::String), policy_parameters: T.nilable(T::Hash[Symbol, ::Object]))
             .void
         }
         def initialize(id:, scope_id: nil, policy_parameters: nil)

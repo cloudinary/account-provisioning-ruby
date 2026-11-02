@@ -15,7 +15,7 @@ module CldProvisioning
         # The ID of the user.
         field :user_id, ::String, {'path_param': {'field_name': "user_id", 'style': "simple", 'explode': false}}
         # User details to update.
-        field :user_request, Models::Shared::UserRequest, {'request': {'media_type': "application/json"}}
+        field :request_body, Models::Operations::UpdateUserRequestBody, {'request': {'media_type': "application/json"}}
         # Account ID
         field(
           :account_id,
@@ -24,11 +24,16 @@ module CldProvisioning
         )
 
         sig {
-          params(user_id: ::String, user_request: Models::Shared::UserRequest, account_id: T.nilable(::String)).void
+          params(
+            user_id: ::String,
+            request_body: Models::Operations::UpdateUserRequestBody,
+            account_id: T.nilable(::String)
+          )
+            .void
         }
-        def initialize(user_id:, user_request:, account_id: nil)
+        def initialize(user_id:, request_body:, account_id: nil)
           @user_id = user_id
-          @user_request = user_request
+          @request_body = request_body
           @account_id = account_id
         end
 
@@ -36,7 +41,7 @@ module CldProvisioning
         def ==(other)
           return false unless other.is_a?(self.class)
           return false unless @user_id == other.user_id
-          return false unless @user_request == other.user_request
+          return false unless @request_body == other.request_body
           return false unless @account_id == other.account_id
           true
         end

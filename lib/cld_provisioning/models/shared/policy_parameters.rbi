@@ -6,4 +6,15 @@ class CldProvisioning::Models::Shared::PolicyParameters
 end
 
 class CldProvisioning::Models::Shared::PolicyParameters
+  def folder_id
+  end
+
+  def folder_id=(str_)
+  end
+
+  def collection_id
+  end
+
+  def collection_id=(str_)
+  end
 end

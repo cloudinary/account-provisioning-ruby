@@ -562,20 +562,20 @@ module CldProvisioning
     sig {
       params(
         user_id: ::String,
-        user_request: Models::Shared::UserRequest,
+        request_body: Models::Operations::UpdateUserRequestBody,
         account_id: T.nilable(::String),
         timeout_ms: T.nilable(Integer),
         http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])
       )
         .returns(Models::Shared::User)
     }
-    def update(user_id:, user_request:, account_id: nil, timeout_ms: nil, http_headers: nil)
+    def update(user_id:, request_body:, account_id: nil, timeout_ms: nil, http_headers: nil)
       # update - Update user
       # Update the details of a user.
       # https://cloudinary.com/documentation/provisioning_api#update_user - Learn more about updating a specific user.
       request = Models::Operations::UpdateUserRequest.new(
         user_id: user_id,
-        user_request: user_request,
+        request_body: request_body,
         account_id: account_id
       )
       url, params = @sdk_configuration.get_server_details
@@ -589,7 +589,7 @@ module CldProvisioning
       )
       headers = {}
       headers = T.cast(headers, T::Hash[String, String])
-      req_content_type, data, form = Utils.serialize_request_body(request, false, false, :user_request, :json)
+      req_content_type, data, form = Utils.serialize_request_body(request, false, false, :request_body, :json)
       headers["content-type"] = req_content_type
       raise StandardError, "request body is required" if data.nil? && form.nil?
 

@@ -7,20 +7,35 @@
 module CldProvisioning
   module Models
     module Shared
-      # For roles with `permission_type` set to `content`, this defines the type of content the role's policies apply to:
-      # - The content type can be: `folder_id` or `collection_id`.
-      # - When assigning the role, provide the instance, e.g. `{"folder_id":"asdfjkl12347890"}`. This specification is passed to the `policy_statement` (Cedar).
-      #
+      # Optional content-scope policy parameters.
       class PolicyParameters
         extend T::Sig
         include Crystalline::MetadataFields
 
-        def initialize
+        # The folder ID the role is scoped to.
+        field(
+          :folder_id,
+          Crystalline::Nilable.new(::String),
+          {'format_json': {'letter_case': ::CldProvisioning::Utils.field_name("folder_id")}}
+        )
+        # The collection ID the role is scoped to.
+        field(
+          :collection_id,
+          Crystalline::Nilable.new(::String),
+          {'format_json': {'letter_case': ::CldProvisioning::Utils.field_name("collection_id")}}
+        )
+
+        sig { params(folder_id: T.nilable(::String), collection_id: T.nilable(::String)).void }
+        def initialize(folder_id: nil, collection_id: nil)
+          @folder_id = folder_id
+          @collection_id = collection_id
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a?(self.class)
+          return false unless @folder_id == other.folder_id
+          return false unless @collection_id == other.collection_id
           true
         end
       end

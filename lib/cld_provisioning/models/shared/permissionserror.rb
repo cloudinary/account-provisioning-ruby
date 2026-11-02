@@ -33,7 +33,7 @@ module CldProvisioning
         # Additional contextual information about the error, which may include relevant data.
         field(
           :details,
-          Crystalline::Nilable.new(Models::Shared::Details),
+          Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)),
           {'format_json': {'letter_case': ::CldProvisioning::Utils.field_name("details")}}
         )
 
@@ -42,7 +42,7 @@ module CldProvisioning
             category: T.nilable(::String),
             code: T.nilable(::String),
             message: T.nilable(::String),
-            details: T.nilable(Models::Shared::Details)
+            details: T.nilable(T::Hash[Symbol, ::Object])
           )
             .void
         }

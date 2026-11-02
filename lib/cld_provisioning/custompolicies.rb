@@ -235,19 +235,19 @@ module CldProvisioning
 
     sig {
       params(
-        custom_policy: Models::Shared::CustomPolicy,
+        create_custom_policy: Models::Shared::CreateCustomPolicy,
         account_id: T.nilable(::String),
         timeout_ms: T.nilable(Integer),
         http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])
       )
         .returns(Models::Shared::CustomPolicyResponse)
     }
-    def create(custom_policy:, account_id: nil, timeout_ms: nil, http_headers: nil)
+    def create(create_custom_policy:, account_id: nil, timeout_ms: nil, http_headers: nil)
       # create - Create custom policy
       # Create a new custom policy with a statement defined in Cedar. This policy specifies permissions for a principal, allowing a specific action on a designated resource, within a particular scope.
       # https://cloudinary.com/documentation/permissions_api_guide#create_a_policy_statement - Learn more about creating a new custom policy
       request = Models::Operations::CreateCustomPolicyRequest.new(
-        custom_policy: custom_policy,
+        create_custom_policy: create_custom_policy,
         account_id: account_id
       )
       url, params = @sdk_configuration.get_server_details
@@ -261,7 +261,7 @@ module CldProvisioning
       )
       headers = {}
       headers = T.cast(headers, T::Hash[String, String])
-      req_content_type, data, form = Utils.serialize_request_body(request, false, false, :custom_policy, :json)
+      req_content_type, data, form = Utils.serialize_request_body(request, false, false, :create_custom_policy, :json)
       headers["content-type"] = req_content_type
       raise StandardError, "request body is required" if data.nil? && form.nil?
 

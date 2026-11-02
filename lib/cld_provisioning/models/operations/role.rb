@@ -7,7 +7,9 @@
 module CldProvisioning
   module Models
     module Operations
-      # Role - The role to assign.
+      # Role - The legacy role to assign. Deprecated: use `roles` (create) or `role_management` (update) instead. Can't be combined with `roles` or `role_management`.
+      #
+      # @deprecated class: Use `roles` (create) or `role_management` (update) instead..
       class Role < T::Enum
         enums do
           MASTER_ADMIN = new("master_admin")

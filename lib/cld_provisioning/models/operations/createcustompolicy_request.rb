@@ -13,7 +13,7 @@ module CldProvisioning
         include Crystalline::MetadataFields
 
         # Policy details.
-        field :custom_policy, Models::Shared::CustomPolicy, {'request': {'media_type': "application/json"}}
+        field :create_custom_policy, Models::Shared::CreateCustomPolicy, {'request': {'media_type': "application/json"}}
         # Account ID
         field(
           :account_id,
@@ -21,16 +21,16 @@ module CldProvisioning
           {'path_param': {'field_name': "account_id", 'style': "simple", 'explode': false}}
         )
 
-        sig { params(custom_policy: Models::Shared::CustomPolicy, account_id: T.nilable(::String)).void }
-        def initialize(custom_policy:, account_id: nil)
-          @custom_policy = custom_policy
+        sig { params(create_custom_policy: Models::Shared::CreateCustomPolicy, account_id: T.nilable(::String)).void }
+        def initialize(create_custom_policy:, account_id: nil)
+          @create_custom_policy = create_custom_policy
           @account_id = account_id
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
         def ==(other)
           return false unless other.is_a?(self.class)
-          return false unless @custom_policy == other.custom_policy
+          return false unless @create_custom_policy == other.create_custom_policy
           return false unless @account_id == other.account_id
           true
         end

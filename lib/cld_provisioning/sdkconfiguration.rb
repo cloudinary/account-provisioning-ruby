@@ -117,10 +117,10 @@ module CldProvisioning
 
       @globals = globals.nil? ? {} : globals
       @language = "ruby"
-      @openapi_doc_version = "0.2.1"
-      @sdk_version = "0.1.0"
-      @gen_version = "2.881.17"
-      @user_agent = "speakeasy-sdk/ruby 0.1.0 2.881.17 0.2.1 cloudinary-account-provisioning"
+      @openapi_doc_version = "0.2.2"
+      @sdk_version = "0.2.0"
+      @gen_version = "2.954.8"
+      @user_agent = "speakeasy-sdk/ruby 0.2.0 2.954.8 0.2.2 cloudinary-account-provisioning"
     end
 
     sig { returns([String, T::Hash[Symbol, String]]) }

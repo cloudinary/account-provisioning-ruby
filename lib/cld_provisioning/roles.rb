@@ -606,14 +606,14 @@ module CldProvisioning
     sig {
       params(
         role_id: ::String,
-        role: Models::Shared::Role,
+        update_role: Models::Shared::UpdateRole,
         account_id: T.nilable(::String),
         timeout_ms: T.nilable(Integer),
         http_headers: T.nilable(T::Hash[T.any(String, Symbol), String])
       )
         .returns(Models::Shared::RoleResponse)
     }
-    def update(role_id:, role:, account_id: nil, timeout_ms: nil, http_headers: nil)
+    def update(role_id:, update_role:, account_id: nil, timeout_ms: nil, http_headers: nil)
       # update - Update custom role
       # Update a specific custom role by providing all relevant details, including those you want to keep as-is.
       #
@@ -621,7 +621,7 @@ module CldProvisioning
       #
       request = Models::Operations::UpdateRoleRequest.new(
         role_id: role_id,
-        role: role,
+        update_role: update_role,
         account_id: account_id
       )
       url, params = @sdk_configuration.get_server_details
@@ -635,7 +635,7 @@ module CldProvisioning
       )
       headers = {}
       headers = T.cast(headers, T::Hash[String, String])
-      req_content_type, data, form = Utils.serialize_request_body(request, false, false, :role, :json)
+      req_content_type, data, form = Utils.serialize_request_body(request, false, false, :update_role, :json)
       headers["content-type"] = req_content_type
       raise StandardError, "request body is required" if data.nil? && form.nil?
 

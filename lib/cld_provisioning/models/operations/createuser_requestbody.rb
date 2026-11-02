@@ -24,7 +24,9 @@ module CldProvisioning
           ::String,
           {'format_json': {'letter_case': ::CldProvisioning::Utils.field_name("email"), required: true}}
         )
-        # The role to assign.
+        # The legacy role to assign. Deprecated: use `roles` (create) or `role_management` (update) instead. Can't be combined with `roles` or `role_management`.
+        #
+        # @deprecated true: Use `roles` (create) or `role_management` (update) instead..
         field(
           :role,
           Crystalline::Nilable.new(Models::Operations::Role),
@@ -50,6 +52,12 @@ module CldProvisioning
           Crystalline::Nilable.new(Crystalline::Boolean.new),
           {'format_json': {'letter_case': ::CldProvisioning::Utils.field_name("enabled")}}
         )
+        # The roles to assign. Can't be sent together with `role`.
+        field(
+          :roles,
+          Crystalline::Nilable.new(Crystalline::Array.new(Models::Shared::RoleAssignment)),
+          {'format_json': {'letter_case': ::CldProvisioning::Utils.field_name("roles")}}
+        )
 
         sig {
           params(
@@ -57,16 +65,18 @@ module CldProvisioning
             email: ::String,
             role: T.nilable(Models::Operations::Role),
             sub_account_ids: T.nilable(T::Array[::String]),
-            enabled: T.nilable(T::Boolean)
+            enabled: T.nilable(T::Boolean),
+            roles: T.nilable(T::Array[Models::Shared::RoleAssignment])
           )
             .void
         }
-        def initialize(name:, email:, role: nil, sub_account_ids: nil, enabled: nil)
+        def initialize(name:, email:, role: nil, sub_account_ids: nil, enabled: nil, roles: nil)
           @name = name
           @email = email
           @role = role
           @sub_account_ids = sub_account_ids
           @enabled = enabled
+          @roles = roles
         end
 
         sig { params(other: T.untyped).returns(T::Boolean) }
@@ -77,6 +87,7 @@ module CldProvisioning
           return false unless @role == other.role
           return false unless @sub_account_ids == other.sub_account_ids
           return false unless @enabled == other.enabled
+          return false unless @roles == other.roles
           true
         end
       end

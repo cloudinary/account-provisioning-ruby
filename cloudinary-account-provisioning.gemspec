@@ -4,19 +4,25 @@ $LOAD_PATH.push File.expand_path('lib', __dir__)
 
 Gem::Specification.new do |s|
   s.name        = 'cloudinary-account-provisioning'
-  s.version     = '0.1.0'
+  s.version     = '0.2.0'
   s.platform    = Gem::Platform::RUBY
-  s.licenses    = ['Apache-2.0']
+  s.licenses    = ['MIT']
   s.summary     = ''
+  s.homepage    = 'https://github.com/cloudinary/account-provisioning-ruby.git'
   s.description = 'Cloudinary Account Provisioning API Ruby SDK.'
   s.authors     = ['Cloudinary']
+  s.metadata    = {
+    'homepage_uri' => 'https://github.com/cloudinary/account-provisioning-ruby.git',
+    'documentation_uri' => 'https://github.com/cloudinary/account-provisioning-ruby.git',
+    'source_code_uri' => 'https://github.com/cloudinary/account-provisioning-ruby.git'
+  }
 
   s.files         = Dir['{lib,test}/**/*'].reject { |f| f.start_with?('test/mockserver') }
   s.require_paths = ['lib']
   s.required_ruby_version = '>= 3.2'
 
   s.add_dependency('base64', '>= 0.2.0', '< 1.0')
-  s.add_dependency('faraday', '>= 2.14.1')
+  s.add_dependency('faraday', '>= 2.14.3')
   s.add_dependency('faraday-multipart', '~> 1.2.0')
   s.add_dependency('faraday-retry', '~> 2.4.0')
   s.add_dependency('sorbet-runtime', '~> 0.6.12872')

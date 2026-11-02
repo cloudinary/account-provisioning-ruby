@@ -4,7 +4,7 @@
 
 All roles include one or more predefined **system policies**, and can be applied to principals to enforce these policies.
 
-You can **manage custom roles**, where you select the system policies.
+You can **manage custom roles**, where you select the system policies. 
 
 You can **view system roles**, which contain a fixed set of system policies and are provided by Cloudinary.
 
@@ -416,7 +416,7 @@ s = ::CldProvisioning::CldProvisioning.new(
     provisioning_api_secret: 'CLOUDINARY_PROVISIONING_API_SECRET'
   )
 )
-res = s.roles.update(role_id: '<id>', role: Models::Shared::Role.new(
+res = s.roles.update(role_id: '<id>', update_role: Models::Shared::UpdateRole.new(
   name: 'Upload manager',
   description: 'Responsible for managing upload presets and uploading new assets.',
   system_policy_ids: [
@@ -444,7 +444,7 @@ s = ::CldProvisioning::CldProvisioning.new(
     provisioning_api_secret: 'CLOUDINARY_PROVISIONING_API_SECRET'
   )
 )
-res = s.roles.update(role_id: '<id>', role: Models::Shared::Role.new(
+res = s.roles.update(role_id: '<id>', update_role: Models::Shared::UpdateRole.new(
   name: 'Upload manager',
   description: 'Responsible for managing upload presets and uploading new assets.',
   system_policy_ids: [
@@ -472,7 +472,7 @@ s = ::CldProvisioning::CldProvisioning.new(
     provisioning_api_secret: 'CLOUDINARY_PROVISIONING_API_SECRET'
   )
 )
-res = s.roles.update(role_id: '<id>', role: Models::Shared::Role.new(
+res = s.roles.update(role_id: '<id>', update_role: Models::Shared::UpdateRole.new(
   name: 'Upload manager',
   description: 'Responsible for managing upload presets and uploading new assets.',
   system_policy_ids: [
@@ -500,7 +500,7 @@ s = ::CldProvisioning::CldProvisioning.new(
     provisioning_api_secret: 'CLOUDINARY_PROVISIONING_API_SECRET'
   )
 )
-res = s.roles.update(role_id: '<id>', role: Models::Shared::Role.new(
+res = s.roles.update(role_id: '<id>', update_role: Models::Shared::UpdateRole.new(
   name: 'Upload manager',
   description: 'Responsible for managing uploads and uploading new assets.',
   system_policy_ids: [
@@ -517,11 +517,11 @@ end
 
 ### Parameters
 
-| Parameter                                           | Type                                                | Required                                            | Description                                         |
-| --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- |
-| `role_id`                                           | *::String*                                          | :heavy_check_mark:                                  | A unique identifier for the role.                   |
-| `role`                                              | [Models::Shared::Role](../../models/shared/role.md) | :heavy_check_mark:                                  | Role details                                        |
-| `account_id`                                        | *T.nilable(::String)*                               | :heavy_minus_sign:                                  | Account ID                                          |
+| Parameter                                                       | Type                                                            | Required                                                        | Description                                                     |
+| --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- |
+| `role_id`                                                       | *::String*                                                      | :heavy_check_mark:                                              | A unique identifier for the role.                               |
+| `update_role`                                                   | [Models::Shared::UpdateRole](../../models/shared/updaterole.md) | :heavy_check_mark:                                              | Role details                                                    |
+| `account_id`                                                    | *T.nilable(::String)*                                           | :heavy_minus_sign:                                              | Account ID                                                      |
 
 ### Response
 
@@ -684,7 +684,9 @@ res = s.roles.update_principals(role_id: '<id>', update_role_principals_request:
       principal_type: Models::Shared::PrincipalTypeEnum::USER,
       principal_id: '1234abc',
       scope_id: '975l29lz02jt0836fhwi',
-      policy_parameters: Models::Shared::UpdateRolePrincipalPolicyParameters.new
+      policy_parameters: {
+
+      }
     ),
   ]
 ))
@@ -712,7 +714,9 @@ res = s.roles.update_principals(role_id: '<id>', update_role_principals_request:
       principal_type: Models::Shared::PrincipalTypeEnum::USER,
       principal_id: '1234abc',
       scope_id: '975l29lz02jt0836fhwi',
-      policy_parameters: Models::Shared::UpdateRolePrincipalPolicyParameters.new
+      policy_parameters: {
+
+      }
     ),
   ]
 ))

@@ -15,7 +15,7 @@ module CldProvisioning
         # A unique identifier for the role.
         field :role_id, ::String, {'path_param': {'field_name': "role_id", 'style': "simple", 'explode': false}}
         # Role details
-        field :role, Models::Shared::Role, {'request': {'media_type': "application/json"}}
+        field :update_role, Models::Shared::UpdateRole, {'request': {'media_type': "application/json"}}
         # Account ID
         field(
           :account_id,
@@ -23,10 +23,12 @@ module CldProvisioning
           {'path_param': {'field_name': "account_id", 'style': "simple", 'explode': false}}
         )
 
-        sig { params(role_id: ::String, role: Models::Shared::Role, account_id: T.nilable(::String)).void }
-        def initialize(role_id:, role:, account_id: nil)
+        sig {
+          params(role_id: ::String, update_role: Models::Shared::UpdateRole, account_id: T.nilable(::String)).void
+        }
+        def initialize(role_id:, update_role:, account_id: nil)
           @role_id = role_id
-          @role = role
+          @update_role = update_role
           @account_id = account_id
         end
 
@@ -34,7 +36,7 @@ module CldProvisioning
         def ==(other)
           return false unless other.is_a?(self.class)
           return false unless @role_id == other.role_id
-          return false unless @role == other.role
+          return false unless @update_role == other.update_role
           return false unless @account_id == other.account_id
           true
         end

@@ -121,8 +121,12 @@ s = ::CldProvisioning::CldProvisioning.new(
 res = s.users.create(request_body: Models::Operations::CreateUserRequestBody.new(
   name: 'John',
   email: 'john@example.com',
-  role: Models::Operations::Role::TECHNICAL_ADMIN,
-  enabled: true
+  enabled: true,
+  roles: [
+    Models::Shared::RoleAssignment.new(
+      id: 'media_library_admin'
+    ),
+  ]
 ))
 
 unless res.nil?
@@ -217,11 +221,14 @@ s = ::CldProvisioning::CldProvisioning.new(
     provisioning_api_secret: 'CLOUDINARY_PROVISIONING_API_SECRET'
   )
 )
-res = s.users.update(user_id: '0abed8dfcc039ea05e2a1d494fd442', user_request: Models::Shared::UserRequest.new(
+res = s.users.update(user_id: '0abed8dfcc039ea05e2a1d494fd442', request_body: Models::Operations::UpdateUserRequestBody.new(
   name: 'John',
   email: 'john@example.com',
-  role: Models::Shared::UserRequestRole::TECHNICAL_ADMIN,
-  enabled: true
+  enabled: true,
+  role_management: Models::Shared::RoleManagementRequest.new(
+    operation: Models::Shared::Operation::ADD,
+    roles: []
+  )
 ))
 
 unless res.nil?
@@ -232,11 +239,11 @@ end
 
 ### Parameters
 
-| Parameter                                                         | Type                                                              | Required                                                          | Description                                                       | Example                                                           |
-| ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
-| `user_id`                                                         | *::String*                                                        | :heavy_check_mark:                                                | The ID of the user.                                               | 0abed8dfcc039ea05e2a1d494fd442                                    |
-| `user_request`                                                    | [Models::Shared::UserRequest](../../models/shared/userrequest.md) | :heavy_check_mark:                                                | User details to update.                                           |                                                                   |
-| `account_id`                                                      | *T.nilable(::String)*                                             | :heavy_minus_sign:                                                | Account ID                                                        |                                                                   |
+| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   | Example                                                                                       |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `user_id`                                                                                     | *::String*                                                                                    | :heavy_check_mark:                                                                            | The ID of the user.                                                                           | 0abed8dfcc039ea05e2a1d494fd442                                                                |
+| `request_body`                                                                                | [Models::Operations::UpdateUserRequestBody](../../models/operations/updateuserrequestbody.md) | :heavy_check_mark:                                                                            | User details to update.                                                                       |                                                                                               |
+| `account_id`                                                                                  | *T.nilable(::String)*                                                                         | :heavy_minus_sign:                                                                            | Account ID                                                                                    |                                                                                               |
 
 ### Response
 

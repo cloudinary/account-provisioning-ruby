@@ -33,7 +33,7 @@ module CldProvisioning
         # For roles with `permission_type` set to `content`, provide the ID of the specific folder or collection you want the role to apply to, for example, `{"folder_id":"asdfjkl12347890"}`. This specification is passed to the `policy_statement`, written in Cedar language.
         field(
           :policy_parameters,
-          Crystalline::Nilable.new(Models::Shared::UpdateRolePrincipalPolicyParameters),
+          Crystalline::Nilable.new(Crystalline::Hash.new(Symbol, ::Object)),
           {'format_json': {'letter_case': ::CldProvisioning::Utils.field_name("policy_parameters")}}
         )
         # The ID of a specific product environment where the role is applied. This parameter is only relevant if `scope_type` is "prodenv".
@@ -47,7 +47,7 @@ module CldProvisioning
           params(
             principal_type: Models::Shared::PrincipalTypeEnum,
             principal_id: ::String,
-            policy_parameters: T.nilable(Models::Shared::UpdateRolePrincipalPolicyParameters),
+            policy_parameters: T.nilable(T::Hash[Symbol, ::Object]),
             scope_id: T.nilable(::String)
           )
             .void

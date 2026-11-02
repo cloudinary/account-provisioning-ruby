@@ -12,10 +12,10 @@ class CldProvisioning::Models::Operations::UpdateUserRequest
   def user_id=(str_)
   end
 
-  def user_request
+  def request_body
   end
 
-  def user_request=(str_)
+  def request_body=(str_)
   end
 
   def account_id
